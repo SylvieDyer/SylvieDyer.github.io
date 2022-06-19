@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="style/style.css">
+
+        <title>Sylvie Dyer: Connect</title>
+    </head>
+
+    <body>
+
+        <nav class="navbar">
+            <!-- Main Title -->
+            <div class="title"><a href="index.html"></a></div>
+            <!-- Navigation Menu-->
+            <ul class="navlinks">
+    
+                <!-- USING CHECKBOX HACK -->
+                <input type="checkbox" id="checkbox_toggle" />
+                <label for="checkbox_toggle" class="hamburger">&#9776;</label>
+                <!-- NAVIGATION MENUS -->
+                <div class="menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="photography.html">Photography</a></li>
+                    <li class="other"><a href="other.html">Other fun things!</a>
+                        <!-- DROPDOWN MENU -->
+                        <ul class="dropdown">
+                            <li><a href="index.html">Dropdown 1 </a></li>
+                            <li><a href="index.html">Dropdown 2</a></li>
+                            <li><a href="index.html">Dropdown 2</a></li>
+                            <li><a href="index.html">Dropdown 3</a></li>
+                            <li><a href="index.html">Dropdown 4</a></li>
+                        </ul>
+                    </li>
+                </div>
+            </ul>
+          </nav>
+
+        <div class="pageTitle">
+            Connect With Me!
+        </div>
+
+        <div class="connectContents">
+            <div class="connectImage">
+                <img class="connectPic" src="/website_images/connectImage.jpg">
+            </div>
+            <div class="connectInfo">
+                If you want to reach out, have any fun projects you want to collaborate on, or just want to chat, feel free to email me! <br> @srd119@case.edu 
+            </div>
+            <div class="connectForm">
+                Or fill out this contact form!
+                <form action="https://formsubmit.co/srd119@case.edu" method="POST">
+                    
+                    <input class="formInput" type="text" name="name" placeholder="Your Name" required>
+                    <input class="formInput" type="email" name="email" placeholder="Email Address" required><br>
+                    <input type="hidden" name="_subject" value="New submission!">
+                    <input type="hidden" name="_next" value="http://localhost:8080/thanks.html">
+                    <input class="formText" type="text" name="info" required><br>
+                    <button class="formSubmit" type="submit">Send</button>
+               </form>
+
+               <div class="thanks">
+                    Your message has been sent successfully, I'll get back to you ASAP!
+               </div>
+
+
+            </div>
+            <div class="social">
+                My Socials: <br>
+                linkedin<br>
+                spotify? <br>
+                insta? <br>
+
+
+            </div>
+
+        </div>
+
+   
+        </div>
+
+    </body>
+</html>

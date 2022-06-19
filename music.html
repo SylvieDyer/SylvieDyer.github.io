@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="style/style.css">
+
+        <title>Sylvie Dyer: Music</title>
+    </head>
+
+    <body>
+        <nav class="navbar">
+            <!-- Main Title -->
+            <div class="title"><a href="index.html"></a></div>
+            <!-- Navigation Menu-->
+            <ul class="navlinks">
+    
+                <!-- USING CHECKBOX HACK -->
+                <input type="checkbox" id="checkbox_toggle" />
+                <label for="checkbox_toggle" class="hamburger">&#9776;</label>
+                <!-- NAVIGATION MENUS -->
+                <div class="menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="photography.html">Photography</a></li>
+                    <li class="other"><a href="other.html">Other fun things!</a>
+                        <!-- DROPDOWN MENU -->
+                        <ul class="dropdown">
+                            <li><a href="index.html">Dropdown 1 </a></li>
+                            <li><a href="index.html">Dropdown 2</a></li>
+                            <li><a href="index.html">Dropdown 2</a></li>
+                            <li><a href="index.html">Dropdown 3</a></li>
+                            <li><a href="index.html">Dropdown 4</a></li>
+                        </ul>
+                    </li>
+                </div>
+            </ul>
+          </nav>
+
+        <div class="pageTitle">Music</div>
+
+        <!--intro -->
+        <div class="musicHeader">
+            Music has always played an important role throughout my life, whether it be playing, listening, or even writing music for fun! <br><br>
+        </div>
+
+        <!--tab links-->
+        <div class="tab">
+            <button class="option" onclick="openSection(event, 'musicExplanation')" id="defaultOpen">some background</button>
+            <button class="option" onclick="openSection(event, 'myMusic')">piano repertoire</button>
+            <button class="option" onclick="openSection(event, 'sharingMusic')">music suggestions</button>
+        </div>
+
+        <!--tabs -->
+        <div id="musicExplanation" class="tabContent">
+            I've been playing music since I was five years old and have racked up a large number of instruments I, atleast to some extent, can play.<br><br>
+            The first instrument I laid my hands on was the cello. My parents, who are both cellists, thought it would be fun if we could be a family of cellists. 
+            The minute my parents corrected my form, however, five year old me had different plans in mind. I decided that I wanted to play the violin instead, following the footsteps of my grandparents. I ended up playing the violin for 8 years. I took private lessons, played in an orchestra, and played in a few chamber group ensambles. 
+            For a few years during that time, I also learned how to play the flute both in private lessons and in my school band. When I got to high school, I decided the violin just wasn't for me, and started taking piano lessons instead. I picked up the piano quickly, and have played piano ever since.
+            Over the last few years, I've also taught myself how to play some songs on the guitar and ukelele, and of course we can't forget my time in elementary school when I played the recorder! <br><br>
+            In terms of listening to music, I mostly enjoy listening to "pop" music - though that's a farily large genre. Some of my favorite artists include Taylor Swift, JP Saxe, BANNERS, Olivia Rodrigo, Noah Cyrus, Niall Horan, Tate McRae, and that's just to name a few. <br><br>
+            Overall, I think that music plays a crucial role in our society. It helps people express themselves when words alone fail, and it's a universal language that can bring people together. I decided to devote a page of my website to music to show the importance it has in my life, and to share some with the world! 
+        </div>
+
+        <div id="myMusic" class="tabContent">
+            Since learning to play the piano in 9th grade, I've learned to play pieces by a large variety of composers. <br><br>
+            In terms of classical music, I'd have to say that my favorite composer is Claude Debussy. Of course I've also learned pieces by some of the classics: Motzart, Chopin, Brahms, and Pachelbel. On the less classical side of music, I've also learned to play various pieces from movie soundtracks. To name a few: 
+            Joe Hisaishi's "One Summer's Day", from <i>Spirited Away</i>; Carter Burwell's "Bella's Lullaby", from <i>Twilight</i>; Justin Hurwitz's "Mia & Sebastian's Theme", from <i>La La Land</i>. <br><br>
+            And in case you were curious, below are two recordings of me performing some pieces! <br><br>
+            <div class="recordingContainer">
+                <div class="leftRec">
+                    <audio controls>
+                        <source src="audios/Debussy.mp3" type="audio/mpeg">
+                        Oh no! Looks like your browser does not support the audio tag :(
+                    </audio>
+                    <br>
+                    <i>Petite Suite</i> "En bateau" - Claude Debussy
+                </div>
+                <div class="rightRec">
+                    <audio controls>
+                        <source src="audios/Brahms.mp3" type="audio/mpeg">
+                        Oh no! Looks like your browser does not support the audio tag :(
+                    </audio>
+                    <br>
+                    Waltz in A-flat Major, Op. 39 No. 15 - Johannes Brahms
+                </div>
+            </div>
+        </div>
+
+        <div id="sharingMusic" class="tabContent">
+            Below are some of my favorite playlists at the moment! <br><br>
+            <div class="playlistContainer">
+                <div class="onePlay">
+                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/6VWdYLKkrQRuAQ9Bosz60F?utm_source=generator"  height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+                </div>
+
+                <div class="twoPlay">
+                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/50jF3EKoRNm8snSIP7Czsk?utm_source=generator" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+                </div>
+
+                <div class="threePlay">
+                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/4pkjYR3VyDfMpfivYHfE94?utm_source=generator" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+                </div>
+                <div class="fourPlay">
+                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/1X9vcejcdAxyDiTfRHzi9a?utm_source=generator" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+                </div>
+            </div>
+            <br>
+            and if you have any playlist or song suggestions for me, feel free to <a href="connect.html">connect with me!</a>
+        </div>
+
+        <script src="script.js"></script>
+        <script>
+            // Get the element with id="defaultOpen" and click on it : for some reason doesn't occur when in js file
+            document.getElementById("defaultOpen").click();
+        </script>
+    </body>
+</html>

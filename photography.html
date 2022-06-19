@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="style/style.css">
+
+        <title>Sylvie Dyer: Photography</title>
+    </head>
+
+    <body>
+
+        <nav class="navbar">
+            <!-- Main Title -->
+            <div class="title"><a href="index.html"></a></div>
+            <!-- Navigation Menu-->
+            <ul class="navlinks">
+    
+                <!-- USING CHECKBOX HACK -->
+                <input type="checkbox" id="checkbox_toggle" />
+                <label for="checkbox_toggle" class="hamburger">&#9776;</label>
+                <!-- NAVIGATION MENUS -->
+                <div class="menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="photography.html">Photography</a></li>
+                    <li class="other"><a href="other.html">Other fun things!</a>
+                        <!-- DROPDOWN MENU -->
+                        <ul class="dropdown">
+                            <li><a href="index.html">Dropdown 1 </a></li>
+                            <li><a href="index.html">Dropdown 2</a></li>
+                            <li><a href="index.html">Dropdown 2</a></li>
+                            <li><a href="index.html">Dropdown 3</a></li>
+                            <li><a href="index.html">Dropdown 4</a></li>
+                        </ul>
+                    </li>
+                </div>
+            </ul>
+        </nav>
+
+        <div class="pageTitle">Photography</div>
+        
+        <!--Filter Options-->
+        <div class="tab">
+            <button class="filter" onclick="filterPhotos(event, 'all')" id="defaultOpen">show all</button>
+            <button class="filter" onclick="filterPhotos(event, 'nyc')">nyc</button>
+            <button class="filter" onclick="filterPhotos(event, 'capecod')">cape cod</button>
+            <button class="filter" onclick="filterPhotos(event, 'italy')">italy</button>
+            <button class="filter" onclick="filterPhotos(event, 'california')">california</button>
+            <button class="filter" onclick="filterPhotos(event, 'southwest')">the southwest</button>
+            <button class="filter" onclick="filterPhotos(event, 'misc')">misc</button>
+        </div>
+
+
+        <!--Gallery Grid-->
+        <div id="all" class="gallery">
+            Taken with a Cannon Rebel T5i
+            <div class="row">
+                <div class="column">
+                    <img class="image" src="">
+                </div>
+                <div class="column">
+                    <img class="image" src="">
+                </div>
+                <div class="column">
+                    <img class="image" src="">
+                </div>
+                <div class="column">
+                    <img class="image" src="">
+                </div>
+            </div>
+        </div>
+
+        <div id="nyc" class="gallery">
+            nyc
+            <div class="row">
+                <div class="column">
+                    <img class="image" src="">
+                </div>
+                <div class="column">
+                    <img class="image" src="">
+                </div>
+                <div class="column">
+                    <img class="image" src="">
+                </div>
+                <div class="column">
+                    <img class="image" src="">
+                </div>
+            </div>
+        </div>
+
+        <div id="capecod" class="gallery">
+            cape cod
+            <div class="row">
+                <div class="column">
+                    <img class="image" src="">
+                </div>
+            </div>
+        </div>
+
+        <div id="italy" class="gallery">
+            italy
+            <div class="row">
+                <div class="column">
+                    <img class="image" src="">
+                </div>
+                <div class="column">
+                    <img class="image" src="">
+                </div>
+                <div class="column">
+                    <img class="image" src="">
+                </div>
+                <div class="column">
+                    <img class="image" src="">
+                </div>
+            </div>
+        </div>
+
+        <div id="california" class="gallery">
+            cali
+            <div class="row">
+                <div class="column">
+                    <img class="image" src="">
+                </div>
+                <div class="column">
+                    <img class="image" src="">
+                </div>
+                <div class="column">
+                    <img class="image" src="">
+                </div>
+                <div class="column">
+                    <img class="image" src="">
+                </div>
+            </div>
+        </div>
+
+        <div id="southwest" class="gallery">
+            southwest
+            <div class="row">
+                <div class="column">
+                    <img class="image" src="">
+                </div>
+                <div class="column">
+                    <img class="image" src="">
+                </div>
+                <div class="column">
+                    <img class="image" src="">
+                </div>
+                <div class="column">
+                    <img class="image" src="">
+                </div>
+            </div>
+        </div>
+    
+        <div id="misc" class="gallery">
+            misc
+            <div class="row">
+                <div class="column">
+                    <img class="image" src="website_images/photography/_MG_5767.jpeg">
+                    <img class="image" src="website_images/photography/_MG_5891.jpeg">
+                    <img class="image" src="website_images/photography/IMG_2058_polarr.JPEG">
+                    <img class="image" src="website_images/photography/S826053-R2-040-18A.jpg">
+                </div>
+                <div class="column">
+                    <img class="image" src="website_images/photography/_MG_5767.jpeg">
+                    <img class="image" src="website_images/photography/_MG_5891.jpeg">
+                    <img class="image" src="website_images/photography/IMG_2058_polarr.JPEG">
+                    <img class="image" src="website_images/photography/S826053-R2-040-18A.jpg">
+                </div>
+                <div class="column">
+                    <img class="image" src="website_images/photography/_MG_5767.jpeg">
+                    <img class="image" src="website_images/photography/_MG_5891.jpeg">
+                    <img class="image" src="website_images/photography/IMG_2058_polarr.JPEG">
+                    <img class="image" src="website_images/photography/S826053-R2-040-18A.jpg">
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+          <div class="construction">
+            Photography Page Currently Under Construction! 
+        </div>
+
+        <script src="script.js"></script>
+        <script>
+            // Get the element with id="defaultOpen" and click on it : for some reason doesn't occur when in js file
+            document.getElementById("defaultOpen").click();
+        </script>
+    </body>
+</html>

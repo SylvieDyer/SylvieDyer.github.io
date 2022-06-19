@@ -1,0 +1,61 @@
+.aboutImage { grid-area: sideImage; }
+.highlights { grid-area: highligthts; }
+.summary    { grid-area: text; }
+
+.aboutGrid {
+    position: relative;
+    display: grid;
+    grid: 
+    'sideImage text text text'
+    'highlights text text text';
+    grid-gap: 5%;
+    padding: 29px;
+    padding-left: 5rem;
+    padding-right: 5rem;
+    margin-bottom: 50px;
+    margin-left: 5%;
+    margin-right: 5%;
+
+}
+
+.aboutPic .aboutImage {
+    background-color:black;
+    width: 100%;
+    border-radius: 30px;
+}
+
+.aboutPic .highlights { 
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;  
+    padding: 1rem;
+    font-size: 22px;
+}
+
+.summary .aboutInfo {
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;  
+   /* background-color: #d3d3d3;*/
+    font-size: 22px;
+    border-radius:  30px;
+    padding: 1rem;
+    margin-left: 5%;
+}
+
+.btnContainer {
+    /* Center child horizontally*/
+    display: flex;
+    justify-content: center;
+}
+
+.btnContainer .chatBtn {
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;  
+    font-size: 22px;
+    padding: 1rem;
+    border-radius: 30px;
+    border-style: solid;
+    border-color: #a3aeb3;
+    background-color: rgba(135, 135, 180, 0.324);
+}
+
+.btnContainer .chatBtn:hover {
+    background-color:rgba(135, 135, 180, 0.69);
+
+}
