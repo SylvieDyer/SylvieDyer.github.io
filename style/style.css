@@ -83,7 +83,7 @@ selector{ property: value; }
 .menu {
     display: flex;
     gap: 1em;
-    font-size: 25px;
+    font-size: 18px;
 }
 
 .menu li:hover {
