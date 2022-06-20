@@ -139,7 +139,6 @@ input[type=checkbox]{
 /* hamburger menu */
 .hamburger {
     display: none;
-    font-size: 24px;
     user-select: none;
 }
 
@@ -261,10 +260,10 @@ input[type=checkbox]{
     }
 
     .main .welcome {
-        font-size: 28px;
+        font-size: 22px;
     }
     .leftSide .side, .middle .photography, .middleL .music, .middleR .connectDiv {
-        font-size: 22px;
+        font-size: 20px;
     }
 
     .footer {
@@ -315,7 +314,7 @@ input[type=checkbox]{
     transform: translate(-50%, -50%);
 
     color: white;
-    font-size: 30px;
+    font-size: 20px;
 }
 
 /* top square */
@@ -323,7 +322,7 @@ input[type=checkbox]{
     background-color: rgba(0, 0, 0, 0.059);
     width: 100%;
     padding: 2%;
-    font-size: 35px;
+    font-size: 22px;
 }   
 
 /* middle square - aligning text*/
@@ -387,7 +386,7 @@ input[type=checkbox]{
 /* connect tile text + link */
 .connectDiv {
     color: black;
-    font-size: 28px;
+    font-size: 20px;
    
     padding-left: 1rem;
     padding-right: 1rem;
@@ -397,7 +396,7 @@ input[type=checkbox]{
 
 /* under construction text */ 
 .construction {
-    font-size: 2rem;
+    font-size: 1.6rem;
     padding: 5rem;
     text-align: center;
 }
@@ -421,7 +420,7 @@ input[type=checkbox]{
 .pageTitle {
     padding: 3rem;
     text-align: center;
-    font-size: 4rem;
+    font-size: 3.5rem;
 }
 
 /* CONNECT PAGE */ 
@@ -453,21 +452,21 @@ input[type=checkbox]{
 }
 
 .connectInfo {
-    font-size: 22px;
+    font-size: 18px;
 }
 
 .social {
     display: flex;
     justify-content: center;    
     align-items: center;
-    font-size: 22px;
+    font-size: 18px;
 }
 
 .spacer{
     padding: 1rem;
 }
 .connectForm {
-    font-size: 22px;
+    font-size: 18px;
 }
 
 .connectForm .formText {
@@ -479,10 +478,10 @@ input[type=checkbox]{
     border-radius: 10px;
     margin: 5px 0 5px 0;
     border-color:rgba(100, 100, 100, 0.180);
-    font-size: 22px;
+    font-size: 18px;
 }
 .connectForm .formSubmit { 
-    font-size: 18px;
+    font-size: 16px;
     margin: 5px;
     padding: 10px;
     border-radius: 10px;
@@ -563,7 +562,7 @@ input[type=checkbox]{
 /* MUSIC PAGE */ 
 .musicHeader {
     text-align: center;
-    font-size: 22px;
+    font-size: 20px;
     margin: 0 5% 0 5%;
 }
 
@@ -582,7 +581,7 @@ input[type=checkbox]{
     cursor: pointer;
     padding: 14px 16px;
 
-    font-size: 22px;
+    font-size: 18px;
     font-weight: 1000;
     color:rgb(152, 152, 152);
     transition: 0.3s;
@@ -604,7 +603,7 @@ input[type=checkbox]{
     margin: 0 5rem 0 5rem;
     padding: 1rem 5rem 1rem 6rem;
 
-    font-size: 22px;
+    font-size: 18px;
     
     border-top: none;
     animation: fadeEffect 1s; /* fade in */
@@ -654,7 +653,7 @@ input[type=checkbox]{
     padding: 1rem 5rem 1rem 6rem;
 
     text-align: center;
-    font-size: 22px;
+    font-size: 18px;
     
     border-top: none;
     animation: fadeEffect 1s; /* fade in */
