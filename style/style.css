@@ -459,7 +459,8 @@ input[type=checkbox]{
     display: flex;
     justify-content: center;    
     align-items: center;
-    font-size: 18px;
+    font-size: 14px;
+    margin-top: 5rem;
 }
 
 .spacer{
@@ -666,6 +667,10 @@ input[type=checkbox]{
 
 .tabContent .sharingText {
     padding-top: 1%;
+}
+
+.tabContent {
+    margin-bottom: 5rem;
 }
 /* photogrpahy */
 .gallery {
