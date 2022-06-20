@@ -1,43 +1,60 @@
-.aboutImage { grid-area: sideImage; }
-.highlights { grid-area: highligthts; }
-.summary    { grid-area: text; }
+.aboutPic {grid-area: pic;}
+.highlights {grid-area: tldr;}
+.summary {grid-area: text;}
 
 .aboutGrid {
     position: relative;
     display: grid;
     grid: 
-    'sideImage text text text'
-    'highlights text text text';
+    'pic text text'
+    'tldr text text';
     grid-gap: 5%;
     padding: 29px;
+    
     padding-left: 5rem;
     padding-right: 5rem;
+    
     margin-bottom: 50px;
     margin-left: 5%;
     margin-right: 5%;
+    
+}
 
+@media (max-width: 900px){
+    .aboutGrid {
+        display: grid;
+        position: relative;
+        grid: 'pic tldr'
+            'text text';
+    }
+    
+    .summary {
+        padding-top: 0;
+    }
+
+    .aboutPic, .highlights {
+        margin-bottom: 0;
+        padding-bottom: 0;
+       
+    }
 }
 
 .aboutPic .aboutImage {
-    background-color:black;
     width: 100%;
     border-radius: 30px;
 }
 
-.aboutPic .highlights { 
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;  
-    padding: 1rem;
-    font-size: 22px;
+ .highlights { 
+    font-size: 18px;
 }
 
-.summary .aboutInfo {
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;  
-   /* background-color: #d3d3d3;*/
-    font-size: 22px;
+.summary {
+    font-size: 18px;
     border-radius:  30px;
     padding: 1rem;
-    margin-left: 5%;
+    padding-top: 10%;
 }
+
 
 .btnContainer {
     /* Center child horizontally*/
@@ -46,8 +63,7 @@
 }
 
 .btnContainer .chatBtn {
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;  
-    font-size: 22px;
+    font-size: 18px;
     padding: 1rem;
     border-radius: 30px;
     border-style: solid;
@@ -59,3 +75,4 @@
     background-color:rgba(135, 135, 180, 0.69);
 
 }
+

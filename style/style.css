@@ -83,7 +83,7 @@ selector{ property: value; }
 .menu {
     display: flex;
     gap: 1em;
-    font-size: 18px;
+    font-size: 19px;
 }
 
 .menu li:hover {
@@ -314,7 +314,7 @@ input[type=checkbox]{
     transform: translate(-50%, -50%);
 
     color: white;
-    font-size: 20px;
+    font-size: 21px;
 }
 
 /* top square */
@@ -322,7 +322,7 @@ input[type=checkbox]{
     background-color: rgba(0, 0, 0, 0.059);
     width: 100%;
     padding: 2%;
-    font-size: 22px;
+    font-size: 23px;
 }   
 
 /* middle square - aligning text*/
@@ -643,10 +643,30 @@ input[type=checkbox]{
     grid-gap: 2%;
 }
 
+@media (max-width: 900px) {
+    .tabContent .playlistContainer {
+        display: grid;
+        position: relative;
+        grid: 
+        'one'
+        'two'
+        'three'
+        'four';
+        overflow:scroll;
+      
+    }
+    .tabContent sharingText { 
+        padding-top: 2%;
+    }
+}
+
 .tabContent .playlistContainer iframe {
     width: 100%;
 }
 
+.tabContent .sharingText {
+    padding-top: 1%;
+}
 /* photogrpahy */
 .gallery {
     display: none;
@@ -679,7 +699,7 @@ input[type=checkbox]{
     width: 100%;
 }
 
-/* responsive - make two clumn instead of four */
+/* responsive - make two columns instead of four */
 @media screen and (max-width: 800px) {
     .gallery .column {
         flex: 50%;
