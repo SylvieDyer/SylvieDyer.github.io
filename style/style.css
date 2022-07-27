@@ -91,7 +91,6 @@ selector{ property: value; }
     border-radius: 5px;
     transition: 0.3s ease;
     background-color: rgba(177, 177, 177, 0.167);
-   
 }
 
 .menu li {
@@ -672,10 +671,11 @@ input[type=checkbox]{
 .tabContent {
     margin-bottom: 5rem;
 }
-/* photogrpahy */
-.gallery {
+
+/* PHOTOGRAPHY PAGE */
+.gallery, .optionGallery, .subGallery {
     display: none;
-    padding: 1rem 5rem 1rem 6rem;
+    padding: 1rem 4rem 3rem 5rem;
 
     text-align: center;
     font-size: 18px;
@@ -684,7 +684,7 @@ input[type=checkbox]{
     animation: fadeEffect 1s; /* fade in */
 }
 
-.gallery .row { 
+.gallery .row, .optionGallery .optionRow, .subGallery .row{ 
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -692,13 +692,20 @@ input[type=checkbox]{
 }
 
 /* four equal columns */
-.gallery .column {
+.gallery .column, .subGallery .column {
     flex: 25%;
     max-width: 25%;
     padding: 0 4px;
 }
 
-.gallery img {
+/* two columns for NY ptions */
+.optionGallery .optionCol { 
+    flex: 50%;
+    max-width: 45%;
+    padding: 0 4px;
+}
+
+.gallery img, .optionGallery img, .subGallery img{
     margin-top: 8px;
     vertical-align: middle;
     width: 100%;
@@ -706,7 +713,7 @@ input[type=checkbox]{
 
 /* responsive - make two columns instead of four */
 @media screen and (max-width: 800px) {
-    .gallery .column {
+    .gallery .column, .subGallery .column {
         flex: 50%;
         max-width: 50%;
     }
@@ -714,9 +721,34 @@ input[type=checkbox]{
 
 /* stack */
 @media screen and (max-width: 600px) {
-    .gallery .column {
+    .gallery .column , .optionGallery .optionCol, .subGallery .column{
         flex: 100%;
         max-width: 100%;
     }
 }
+
+.subCat { 
+    position: relative;
+    text-align: center;
+    color: white;    
+    border: none;
+    background-color: white;
+    z-index: top;
+}
+
+.subCat:hover {
+    background-color: #e4e4e425;
+}
+
+.subCat .option {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight:bold;
+    font-size: 23px;
+    width: 100%;
+}
+
+
 

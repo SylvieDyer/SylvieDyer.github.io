@@ -21,6 +21,7 @@ function openSection(e, selection) {
     e.currentTarget.className += " active";
 }
 
+// PHOTOGRAPHY PAGE: filter photos
 function filterPhotos(e, label) {
     var x, gallery, filter;
 
@@ -28,6 +29,17 @@ function filterPhotos(e, label) {
     for (x = 0; x < gallery.length; x++) {
         gallery[x].style.display = "none";
     }
+
+    // hides the NY option gallery
+    gallery = document.getElementsByClassName("optionGallery");
+    gallery[0].style.display = "none";
+
+
+    gallery = document.getElementsByClassName("subGallery");
+    for (x = 0; x < gallery.length; x++) {
+        gallery[x].style.display = "none";
+    }
+    
 
     filter = document.getElementsByClassName("filter");
     for (x = 0; x < filter.length; x++) {
@@ -38,5 +50,30 @@ function filterPhotos(e, label) {
     e.currentTarget.className += " active";
 }
 
+// filter NY Photos
+function subFilter(e, label) {
+    var x, gallery, subCat;
 
+    gallery = document.getElementsByClassName("subGallery");
+    for (x = 0; x < gallery.length; x++) {
+        gallery[x].style.display = "none";
+    }
+
+    // hides the NY option gallery
+    gallery = document.getElementsByClassName("optionGallery");
+    gallery[0].style.display = "none";
+
+
+    // hides the sub gallery when not chosen 
+
+
+
+    subCat = document.getElementsByClassName("subCat");
+    for (x = 0; x < subCat.length; x++) {
+        subCat[x].className = subCat[x].className.replace(" active", "");
+    }
+
+    document.getElementById(label).style.display = "block";
+    e.currentTarget.className += " active";
+}
 
