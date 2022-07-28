@@ -32,8 +32,9 @@ function filterPhotos(e, label) {
 
     // hides the NY option gallery
     gallery = document.getElementsByClassName("optionGallery");
-    gallery[0].style.display = "none";
-
+    for (x = 0; x < gallery.length; x++) {
+        gallery[x].style.display = "none";
+    }
 
     gallery = document.getElementsByClassName("subGallery");
     for (x = 0; x < gallery.length; x++) {
@@ -59,14 +60,11 @@ function subFilter(e, label) {
         gallery[x].style.display = "none";
     }
 
-    // hides the NY option gallery
+    // hides the NY option gallery & sub gallery
     gallery = document.getElementsByClassName("optionGallery");
-    gallery[0].style.display = "none";
-
-
-    // hides the sub gallery when not chosen 
-
-
+    for (x = 0; x < gallery.length; x++) {
+        gallery[x].style.display = "none";
+    }
 
     subCat = document.getElementsByClassName("subCat");
     for (x = 0; x < subCat.length; x++) {

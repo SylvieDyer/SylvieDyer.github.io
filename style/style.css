@@ -684,7 +684,7 @@ input[type=checkbox]{
     animation: fadeEffect 1s; /* fade in */
 }
 
-.gallery .row, .optionGallery .optionRow, .subGallery .row{ 
+.gallery .row, .optionGallery .biRow { 
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -699,7 +699,7 @@ input[type=checkbox]{
 }
 
 /* two columns for NY ptions */
-.optionGallery .optionCol { 
+.optionGallery .biCol { 
     flex: 50%;
     max-width: 45%;
     padding: 0 4px;
@@ -709,6 +709,10 @@ input[type=checkbox]{
     margin-top: 8px;
     vertical-align: middle;
     width: 100%;
+}
+
+.optionGallery img {
+    max-height:max-content;
 }
 
 /* responsive - make two columns instead of four */
@@ -721,7 +725,7 @@ input[type=checkbox]{
 
 /* stack */
 @media screen and (max-width: 600px) {
-    .gallery .column , .optionGallery .optionCol, .subGallery .column{
+    .gallery .column , .optionGallery .biCol, .subGallery .column{
         flex: 100%;
         max-width: 100%;
     }
@@ -734,6 +738,7 @@ input[type=checkbox]{
     border: none;
     background-color: white;
     z-index: top;
+    padding: .24rem;
 }
 
 .subCat:hover {

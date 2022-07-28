@@ -43,20 +43,21 @@
 
         <div class="pageTitle">Photography</div>
         
-        <div class="construction">
-            Photography Page Currently Under Construction!
+        <div class="musicHeader">
+            Taken on a Cannon Rebel t5i <br><br>
+            (still under some construction)<br><br><br>
         </div>
 
         <!--Filter Options-->
         <div class="tab">
-         <!--  <button class="filter" onclick="filterPhotos(event, 'all')" id="defaultOpen">show all</button>
-            <button class="filter" onclick="filterPhotos(event, 'capecod')">cape cod</button>
-            <button class="filter" onclick="filterPhotos(event, 'italy')">italy</button>
-            <button class="filter" onclick="filterPhotos(event, 'california')">california</button>
-            <button class="filter" onclick="filterPhotos(event, 'southwest')">the southwest</button>
-            <button class="filter" onclick="filterPhotos(event, 'highways')">hgihways & byways</button>
-            <button class="filter" onclick="filterPhotos(event, 'misc')">misc</button> -->
+     <!--       <button class="filter" onclick="filterPhotos(event, 'all')" id="defaultOpen">The Complete Collection</button> -->
             <button class="filter" onclick="filterPhotos(event, 'nyc')" id="defaultOpen">New York</button>
+            <button class="filter" onclick="filterPhotos(event, 'capecod')">Cape Cod</button>
+            <button class="filter" onclick="filterPhotos(event, 'ggi')">Great Gull Island</button>
+            <button class="filter" onclick="filterPhotos(event, 'italy')">Italy</button>
+            <button class="filter" onclick="filterPhotos(event, 'west')">Western US</button>
+            <button class="filter" onclick="filterPhotos(event, 'highways')">Highways & Byways</button>
+            <button class="filter" onclick="filterPhotos(event, 'misc')">Other</button>
 
         </div>
 
@@ -81,12 +82,12 @@
         </div>
 
         <div id="nyc" class="optionGallery">
-            <div class="optionRow">
-                <div class="optionCol">
+            <div class="biRow">
+                <div class="biCol">
                     <button class="subCat" onclick="subFilter(event, 'urban')"><img src="website_images/photography/ny/city/empire_Skyline.jpg"><div class="option">URBAN</div></button>
                     <button class="subCat" onclick="subFilter(event, 'upstate')"><img  src="website_images/photography/ny/upstate/road_foggy2.jpg"><div class="option">UPSTATE</div></button>
                 </div>
-                <div class="optionCol">
+                <div class="biCol">
                     <button class="subCat" onclick="subFilter(event, 'seasonal')"><img src="website_images/photography/ny/seasonal/fall_landscape.jpg"><div class="option">SEASONAL</div></button>
                     <button class="subCat" onclick="subFilter(event, 'other')"><img src="website_images/photography/ny/other/fireisland.jpg"><div class="option">OTHER</div></button>
                 </div>
@@ -94,91 +95,96 @@
         </div>
 
         <!-- part of NYC option-->
-        <div id="urban" class="subGallery">  
+        <div id="urban" class="optionGallery">  
             NEW YORK CITY
-            <div class="row">
-                <div class="column">
+            <div class="biRow">
+                <div class="biCol">
                     <img class="image" src="website_images/photography/ny/city/timesquare.jpg">
                     <img class="image" src="website_images/photography/ny/city/manhattan_film.jpg">
                     <img class="image" src="website_images/photography/ny/city/observatory_lookout2.jpg">
                     <img class="image" src="website_images/photography/ny/city/reflections_observatory.jpg">
-                </div>
-
-                <div class="column">
-                    <img class="image" src="website_images/photography/ny/city/skyline_lowerMan.jpg">
-                    <img class="image" src="website_images/photography/ny/city/empire_Skyline.jpg">
-                    <img class="image" src="website_images/photography/ny/city/unionsquare_rainy.jpeg">
-                    <img class="image" src="website_images/photography/ny/city/midtown_prism.jpg">
-                </div>
-
-                <div class="column">
                     <img class="image" src="website_images/photography/ny/city/lowereastside.jpg">
                     <img class="image" src="website_images/photography/ny/city/unionsquare_rainy.jpeg">
                     <img class="image" src="website_images/photography/ny/city/observatory_dark.jpg">
                     <img class="image" src="website_images/photography/ny/city/observatory_lookout3.jpg">
                 </div>
 
-                <div class="column">
+                <div class="biCol">
+                    <img class="image" src="website_images/photography/ny/city/skyline_lowerMan.jpg">
+                    <img class="image" src="website_images/photography/ny/city/empire_Skyline.jpg">
+                    <img class="image" src="website_images/photography/ny/city/unionsquare_rainy.jpeg">
+                    <img class="image" src="website_images/photography/ny/city/midtown_prism.jpg">
                     <img class="image" src="website_images/photography/ny/city/manhattan_bridge.jpg">
                     <img class="image" src="website_images/photography/ny/city/observatory_headon.jpg">
                     <img class="image" src="website_images/photography/ny/city/centralpark_reservoir.jpg">
                     <img class="image" src="website_images/photography/ny/city/observatory_lookout4.jpg">
                 </div>
-
             </div>
         </div>
 
-        <div id="upstate" class="gallery">
+        <div id="upstate" class="optionGallery">
             UPSTATE <br> everything is upstate when you live in the city...
-            <div class="row">
-                <div class="column">
+            <div class="biRow">
+                <div class="biCol">
                     <img class="image" src="website_images/photography/ny/upstate/woodsy.jpg">
-                </div>
-                <div class="column">
-                    <img class="image" src="website_images/photography/ny/upstate/mohonk_spring.jpg">
-                </div>
-                <div class="column">
-                    <img class="image" src="website_images/photography/ny/upstate/road_orange.jpg">
-                </div>
-                <div class="column">
+                    <img class="image" src="website_images/photography/ny/upstate/minewaska_path.jpg">
                     <img class="image" src="website_images/photography/ny/upstate/minewaska_lakepath.jpg">
+                    <img class="image" src="website_images/photography/ny/upstate/placid_lawn.jpg">
+                    <img class="image" src="website_images/photography/ny/upstate/road_snowy.jpg">
+                    <img class="image" src="website_images/photography/ny/upstate/placid_fog.jpg"> 
+
+                </div>
+                <div class="biCol">
+                    <img class="image" src="website_images/photography/ny/upstate/mohonk_spring.jpg">
+                    <img class="image" src="website_images/photography/ny/upstate/placid_day.jpg">
+                    <img class="image" src="website_images/photography/ny/upstate/woodsy2.jpg">
+                    <img class="image" src="website_images/photography/ny/upstate/road_water.jpg">
+                    <img class="image" src="website_images/photography/ny/upstate/road_orange.jpg">
+                    <img class="image" src="website_images/photography/ny/upstate/placid_fog_Rosy.jpg">
+                    <img class="image" src="website_images/photography/ny/upstate/road_fall.jpg">
+                </div>
+              
+            </div>
+        </div>
+
+        <div id="seasonal" class="optionGallery">
+            SEASON-SCAPES (in NY) 
+            <div class="biRow">
+                <div class="biCol">
+                    <img class="image" src="website_images/photography/ny/seasonal/minewaska_snowy.jpg">
+                    <img class="image" src="website_images/photography/ny/seasonal/beach_overhead.jpg">
+                    <img class="image" src="website_images/photography/ny/seasonal/snowy_bus.jpg">
+                    <img class="image" src="website_images/photography/ny/seasonal/woodsy3.jpg">
+
+                </div>
+                <div class="biCol">
+                    <img class="image" src="website_images/photography/ny/seasonal/lookout_snowy.jpg">
+                    <img class="image" src="website_images/photography/ny/seasonal/beach.jpg">
+                    <img class="image" src="website_images/photography/ny/seasonal/fall_landscape.jpg">
+                    <img class="image" src="website_images/photography/ny/upstate/mohonk_spring.jpg">
+
                 </div>
             </div>
         </div>
 
-        <div id="seasonal" class="gallery">
-            COMING SOON...
-            <div class="row">
-                <div class="column">
-                    <img class="image" src="">
-                </div>
-                <div class="column">
-                    <img class="image" src="">
-                </div>
-                <div class="column">
-                    <img class="image" src="">
-                </div>
-                <div class="column">
-                    <img class="image" src="">
-                </div>
-            </div>
-        </div>
+        <div id="other" class="optionGallery">
+            OHTER PICTURES TAKEN IN NY
+            <div class="biRow">
+                <div class="biCol">
+                    <img class="image" src="website_images/photography/ny/other/doggo.jpg">
+                    <img class="image" src="website_images/photography/ny/other/sky_light.jpg">
+                    <img class="image" src="website_images/photography/ny/other/leaves.jpg">
 
-        <div id="other" class="gallery">
-            COMING SOON...
-            <div class="row">
-                <div class="column">
-                    <img class="image" src="">
+
                 </div>
-                <div class="column">
-                    <img class="image" src="">
+                <div class="biCol">
+                    <img class="image" src="website_images/photography/ny/other/fireisland.jpg">
+                    <img class="image" src="website_images/photography/ny/other/sunset_road.jpg">
+                    <img class="image" src="website_images/photography/ny/other/sunset_ferry.jpeg">
+
+
                 </div>
-                <div class="column">
-                    <img class="image" src="">
-                </div>
-                <div class="column">
-                    <img class="image" src="">
-                </div>
+    
             </div>
         </div>
     
@@ -186,7 +192,7 @@
  
 
         <div id="capecod" class="gallery">
-            cape cod
+            coming soon...
             <div class="row">
                 <div class="column">
                     <img class="image" src="">
@@ -195,7 +201,7 @@
         </div>
 
         <div id="italy" class="gallery">
-            italy
+            coming soon...
             <div class="row">
                 <div class="column">
                     <img class="image" src="">
@@ -212,8 +218,8 @@
             </div>
         </div>
 
-        <div id="california" class="gallery">
-            cali
+        <div id="ggi" class="gallery">
+            coming soon...
             <div class="row">
                 <div class="column">
                     <img class="image" src="">
@@ -230,8 +236,8 @@
             </div>
         </div>
 
-        <div id="southwest" class="gallery">
-            southwest
+        <div id="west" class="gallery">
+            coming soon...
             <div class="row">
                 <div class="column">
                     <img class="image" src="">
@@ -249,6 +255,7 @@
         </div>
 
         <div id="highways" class="gallery">
+            coming soon...
             <div class="row">
                 <div class="column">
                     <img class="image" src="">
@@ -266,26 +273,9 @@
         </div>
 
         <div id="misc" class="gallery">
-            misc
+            coming soon...
             <div class="row">
-                <div class="column">
-                    <img class="image" src="website_images/photography/IMG_5767.jpeg">
-                    <img class="image" src="website_images/photography/IMG_5891.jpeg">
-                    <img class="image" src="website_images/photography/IMG_2058_polarr.JPEG">
-                    <img class="image" src="website_images/photography/S826053-R2-040-18A.jpg">
-                </div>
-                <div class="column">
-                    <img class="image" src="website_images/photography/IMG_5767.jpeg">
-                    <img class="image" src="website_images/photography/IMG_5891.jpeg">
-                    <img class="image" src="website_images/photography/IMG_2058_polarr.JPEG">
-                    <img class="image" src="website_images/photography/S826053-R2-040-18A.jpg">
-                </div>
-                <div class="column">
-                    <img class="image" src="website_images/photography/IMG_5767.jpeg">
-                    <img class="image" src="website_images/photography/IMG_5891.jpeg">
-                    <img class="image" src="website_images/photography/IMG_2058_polarr.JPEG">
-                    <img class="image" src="website_images/photography/S826053-R2-040-18A.jpg">
-                </div>
+            
             </div>
         </div>
 
