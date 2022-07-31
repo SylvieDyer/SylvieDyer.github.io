@@ -39,6 +39,23 @@
     }
 }
 
+@media (max-width: 600px){
+    .aboutGrid {
+        display: grid;
+        position: relative;
+        grid: 'pic'
+            'text'
+            'tldr';
+        overflow: scroll;
+    }
+    
+    .summary {
+        padding-top: 0;
+    }
+}
+
+
+
 .aboutPic .aboutImage {
     width: 100%;
     border-radius: 30px;
@@ -52,7 +69,6 @@
     font-size: 18px;
     border-radius:  30px;
     padding: 1rem;
-    padding-top: 10%;
 }
 
 

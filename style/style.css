@@ -294,7 +294,7 @@ input[type=checkbox]{
 }
 
 /* all images */
-.homeImage, .photographyImage, .sideImage, .musicImage {
+.homeImage, .photographyImage, .sideImage, .musicImage, .connectImage {
     height: 100%;
     width: 100%;
     border-radius: 30px;
@@ -315,6 +315,17 @@ input[type=checkbox]{
     color: white;
     font-size: 21px;
 }
+
+.middleR .connectDiv {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    color: white;
+    font-size: 18px;
+}
+
 
 /* top square */
 .welcome {
@@ -370,19 +381,35 @@ input[type=checkbox]{
 }
 
 /* connect tile */
-.middleR{
-    background-color:rgba(91, 91, 91, 0.065);
+.connectDiv{
+
+    height: 100%;
+    width: 100%;
+    display: block;
+   
+    text-align: left;
+    padding-left: 7%;
+    padding-right: 5%;
+    padding-top: 170%;
+
+
+    background-color: rgba(0, 0, 0, 0);
+    border-radius: 30px;
+    border-style:none;
+
+    /*background-color:rgba(91, 91, 91, 0.065);
     border-radius: 400px;
 
     /* fill the grid slot */ 
-    display: flex;
+   /* display: flex;
     justify-content: center;
     align-items: center;
     height: fit-content;
-    height: 100%;
+    height: 100%; */
 }
 
 /* connect tile text + link */
+/*
 .connectDiv {
     color: black;
     font-size: 20px;
@@ -392,6 +419,7 @@ input[type=checkbox]{
     padding-top: 50%;
     padding-bottom: 55%;
 }
+*/
 
 /* under construction text */ 
 .construction {
