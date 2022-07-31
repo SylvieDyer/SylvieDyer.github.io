@@ -51,7 +51,7 @@ function filterPhotos(e, label) {
     e.currentTarget.className += " active";
 }
 
-// filter NY Photos
+// filter NY/ WESTERN US Photos
 function subFilter(e, label) {
     var x, gallery, subCat;
 
