@@ -561,7 +561,7 @@ input[type=checkbox]{
     }
 
     .connectImage .connectPic {
-        height: 5rem;
+        width: 100%;
     }
 
 }
