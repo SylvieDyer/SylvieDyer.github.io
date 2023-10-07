@@ -14,7 +14,7 @@ li {
     list-style: none;
 }
 
-/* CROME */
+/* CHROME */
 /* Chrome version 29 and above */
 @media screen and (-webkit-min-device-pixel-ratio:0)
 and (min-resolution: .001dpcm) {
@@ -34,7 +34,7 @@ selector{ property: value; }
             font-size: 18px;
         }
 
-        .grid .middle .photography, .grid .leftSide .side, .grid .middleL .music, .grid .middleR .connectDiv { 
+        .grid .middle .photography, .grid .leftSideTop .about, .grid .leftSideBottom .projects, .grid .middleL .music, .grid .middleR .connectDiv { 
             font-size: 17px;
         }
     }
@@ -43,7 +43,7 @@ selector{ property: value; }
         font-size: 23px;
     }
 
-    .middle .photography, .leftSide .side, .middleL .music, .middleR .connectDiv { 
+    .middle .photography, .leftSideTop .about, .leftSideBottom .projects, .middleL .music, .middleR .connectDiv { 
         font-size: 20px;
     }
 
@@ -55,7 +55,9 @@ selector{ property: value; }
         font-size: 18px;
     }
 
-    /* TODO: PAGE ID WHEN PUBLISHED */
+    /* TODO:  REsponsiveness fro Projects Page */
+
+  
     .musicExplanation { 
         font-size: 18px;
     }
@@ -188,34 +190,36 @@ input[type=checkbox]{
 
 /* INDEX PAGE */
 .main     { grid-area: main; }
-.leftSide { grid-area: side; }
+.leftSideTop { grid-area: sideTop; }
+.leftSideBottom {grid-area: sideBottom; }
 .middle   { grid-area: middle; }
 .middleL  { grid-area: midleft;}
 .middleR  { grid-area: midright;}
 
 .grid {
-    position: relative;
+    position: block;
     display: grid;
     grid: 
     'main main main main main main'
-    'side side middle middle middle middle'
-    'side side midleft midleft midleft midright';
+    'middle middle middle midleft midleft midleft'
+    'sideTop sideTop sideBottom sideBottom midright midright';
     grid-gap: 3%;
 
     padding: 10px;
     padding-left: 5rem;
-    padding-right: 5rem;
+    padding-right: 5rem; 
 
     margin-bottom: 10%;
     margin-left: 5%;
     margin-right: 5%;
+
+    height: 10%;
 }
 
 .grid > div {
    /* background-color:rgb(194, 176, 189);*/
     text-align: center;
-    border-radius: 20px;
-
+   
 }
 
 .grid .connect {
@@ -230,9 +234,9 @@ input[type=checkbox]{
         display: grid;
         grid:
         'main main'
-        'side midright'
+        'sideBottom midright'
         'middle middle'
-        'midleft midleft';
+        'midleft sideTop';
         grid-gap: 3%;
         padding: 10px;
         margin-bottom: 10rem;
@@ -240,7 +244,7 @@ input[type=checkbox]{
         margin-right: 5%;
     }
 
-    .leftSide {
+    .leftSideTop, .leftSideBottom {
         height: 100%;
         width: 100%;
         margin-right: 10%;
@@ -250,18 +254,24 @@ input[type=checkbox]{
         height: 20rem;
     }
 
-    .middleL {
+    .middleL, .leftSideTop {
         height: 20rem;
     }
     
-    .leftside .side, .middle .photography, .middleR .music {
+    .leftSideTop .about, .leftSideBottom .projects, .middle .photography, .middleR .music {
         padding-top: 6%;
+    }
+
+    .middleR .connectDiv {
+        text-align: left;
+        padding-right: 5%;
+        padding-bottom: 30%;
     }
 
     .main .welcome {
         font-size: 22px;
     }
-    .leftSide .side, .middle .photography, .middleL .music, .middleR .connectDiv {
+    .leftSideTop .about, .leftSideBottom .projects, .middle .photography, .middleL .music, .middleR .connectDiv {
         font-size: 20px;
     }
 
@@ -277,36 +287,30 @@ input[type=checkbox]{
         color: rgb(116, 116, 116);
     }
 }
-/*
-@media (max-width: 700px){
-    .leftSide .side, .middle .photography, .middleR .music, .middleL .cookies{
-        font-size: 70%;
-    }
-}
-*/
 
 /* HOME PAGE */
 /* all squares */
-.main, .leftSide, .middle, .middleL, .middleR, .connect {
+.main, .leftSideTop, .leftSideBottom, .middle, .middleL, .middleR, .connect {
     position: relative;
     text-align: center;
     color:white;
+   
 }
 
 /* all images */
-.homeImage, .photographyImage, .sideImage, .musicImage, .connectImage {
+.homeImage, .photographyImage, .aboutImage, .projectsImage, .musicImage, .connectImage {
     height: 100%;
     width: 100%;
     border-radius: 30px;
     display: block;
 }
 
-.photography:hover, .side:hover, .music:hover, .connectDiv:hover, .middleR:hover{
+.photography:hover, .about:hover, .projects:hover, .music:hover, .connectDiv:hover, .middleR:hover{
     background-color: #e4e4e425;
 }
 
 /* square texts */
-.welcome, .photography, .side, .music {
+.welcome, .photography, .about, .projects, .music {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -316,7 +320,7 @@ input[type=checkbox]{
     font-size: 21px;
 }
 
-.middleR .connectDiv {
+.middleR .connectDiv{
     position: absolute;
     top: 50%;
     left: 50%;
@@ -351,8 +355,8 @@ input[type=checkbox]{
 }
 
 /* side square - aligning text */
-.side {
-    height:100%;
+.about, .projects {
+    height: 100%;
     width: 100%;
     display: block;
    
@@ -588,7 +592,7 @@ input[type=checkbox]{
 }
 
 /* MUSIC PAGE */ 
-.musicHeader {
+.musicHeader, .projectsHeader {
     text-align: center;
     font-size: 20px;
     margin: 0 5% 0 5%;
@@ -742,6 +746,7 @@ input[type=checkbox]{
 .optionGallery img {
     max-height:max-content;
 }
+
 
 /* responsive - make two columns instead of four */
 @media screen and (max-width: 800px) {

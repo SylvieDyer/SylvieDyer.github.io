@@ -27,6 +27,7 @@
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="photography.html">Photography</a></li>
+                    <li><a href="projects.html">Projects</a></li>
                     <li class="other">Other fun things!
                         <!-- DROPDOWN MENU -->
                         <ul class="dropdown">
@@ -53,6 +54,7 @@
         <div class="tab">
      <!--       <button class="filter" onclick="filterPhotos(event, 'all')" id="defaultOpen">The Complete Collection</button> -->
             <button class="filter" onclick="filterPhotos(event, 'nyc')" id="defaultOpen">New York</button>
+            <button class="filter" onclick="filterPhotos(event, 'wa')">Washington</button>
             <button class="filter" onclick="filterPhotos(event, 'ggi')">Great Gull Island</button>
             <button class="filter" onclick="filterPhotos(event, 'capecod')">Cape Cod</button>
             <button class="filter" onclick="filterPhotos(event, 'italy')">Italy</button>
@@ -245,18 +247,29 @@
             </div>
         </div>
 
+        <div id="wa" class="optionGallery">
+            <div class="biRow">
+                <div class="biCol">
+                    <button class="subCat" onclick="subFilter(event, 'snoqualmie')"><img src="website_images/photography/wa/snoqualmie/_MG_6358.jpeg"><div class="option">SNOQUALMIE VALLEY</div></button>
+                    <button class="subCat" onclick="subFilter(event, 'sea')"><img id="seattle" src="website_images/photography/west/spheres.jpg"><div class="option">SEATTLE</div></button>
+                </div>
+                <div class="biCol">
+                    <button class="subCat" onclick="subFilter(event, 'rainier')"><img  src="website_images/photography/wa/rainier/_MG_6979.jpeg"><div class="option">MT. RAINIER</div></button>
+                    <button class="subCat" onclick="subFilter(event, 'cascades')"><img src="website_images/photography/wa/cascades/_MG_6708.jpeg"><div class="option">CASCADES</div></button>
+                    <button class="subCat" onclick="subFilter(event, 'olympic')"><img src="website_images/photography/wa/olympic/_MG_7217.jpeg"><div class="option">OLYMPIC PENINSULA</div></button>
+                </div>
+            </div>
+        </div>
+
         <div id="west" class="optionGallery">
             <div class="biRow">
                 <div class="biCol">
-                    <button class="subCat" onclick="subFilter(event, 'wa')"><img src="website_images/photography/west/spheres.jpg"><div class="option" style="background-color:rgba(132,132,132, 0.52); padding: .3rem">SEATTLE</div></button>
-
+                    <button class="subCat" onclick="subFilter(event, 'cali')"><img src="website_images/photography/west/redwoods.jpg"><div class="option" style="background-color:rgba(132, 132, 132, 0.53); padding: .3rem">CALI</div></button>
                 </div>
                 <div class="biCol">
-                    <button class="subCat" onclick="subFilter(event, 'cali')"><img src="website_images/photography/west/redwoods.jpg"><div class="option" style="background-color:rgba(132, 132, 132, 0.53); padding: .3rem">CALI</div></button>
                     <button class="subCat" onclick="subFilter(event, 's.w')"><img src="website_images/photography/west/brycecanyon_landscape2.jpg"><div class="option" style="background-color: rgba(132, 132, 132, 0.53); padding: .3rem">SOUTHWEST</div></button>
                 </div>
             </div>
-
         </div>
 
         <div id="cali" class="optionGallery">
@@ -308,8 +321,7 @@
             </div>
         </div>
 
-        <div id="wa" class="optionGallery">
-            Mostly Seattle
+        <div id="sea" class="optionGallery">
             <div class="biRow">
                 <div class="biCol">
                     <img class="image" src="website_images/photography/west/wheel.jpeg">
@@ -322,7 +334,74 @@
             </div> 
         </div>
 
-        <div id="highways" class="gallery">
+        <div id="rainier" class="optionGallery">
+            <div class="biRow">
+                <div class="biCol">
+                    <img class="image" src="website_images/photography/wa/rainier/_MG_7054.jpeg">
+                    <img class="image" src="website_images/photography/wa/rainier/_MG_7049.jpeg">
+                    <img class="image" src=" website_images/photography/wa/rainier/_MG_6859.jpeg">
+                    <img class="image" src="website_images/photography/wa/rainier/_MG_7055.jpeg">
+                    <img class="image" src="website_images/photography/wa/rainier/_MG_6901.jpeg">
+                </div>
+                <div class="biCol">
+                    <img class="image" src="website_images/photography/wa/rainier/_MG_6901.jpeg">
+                    <img class="image" src="website_images/photography/wa/rainier/_MG_7010.jpeg">
+                    <img class="image" src="website_images/photography/wa/rainier/_MG_7020.jpeg">
+                    <img class="image" src="website_images/photography/wa/rainier/_MG_6883.jpeg">
+                    <img class="image" src="website_images/photography/wa/rainier/_MG_6930.jpeg">
+                </div>
+            </div>
+        </div>
+
+        <div id="snoqualmie" class="optionGallery">
+            <div class="biRow">    
+                <div class="biCol">
+                    <img class="image" src=" website_images/photography/wa/snoqualmie/_MG_6326.jpeg">
+                    <img class="image" src="website_images/photography/wa/snoqualmie/_MG_6515 (1).jpeg">
+                    <img class="image" src="website_images/photography/wa/snoqualmie/_MG_6324 (1).jpeg">
+                    <img class="image" src="website_images/photography/wa/snoqualmie/_MG_6292.jpeg">
+                </div>
+                <div class="biCol">
+                    <img class="image" src="website_images/photography/wa/snoqualmie/_MG_6358.jpeg">
+                    <img class="image" src="website_images/photography/wa/snoqualmie/_MG_6348.jpeg">
+                    <img class="image" src="website_images/photography/wa/snoqualmie/_MG_6364.jpeg">
+                    <img class="image" src="website_images/photography/wa/snoqualmie/_MG_6440.jpeg">
+                </div>
+            
+            </div> 
+        </div>
+
+        <div id="olympic" class="optionGallery">
+            <div class="biRow">    
+                <div class="biCol">
+                    <img class="image" src="website_images/photography/wa/olympic/_MG_7267.jpeg">
+                    <img class="image" src="website_images/photography/wa/olympic/IMG_7224.jpeg">
+                </div>
+                <div class="biCol">
+                    <img class="image" src="website_images/photography/wa/olympic/_MG_7276.jpeg">
+                    <img class="image" src="website_images/photography/wa/olympic/_MG_7270.jpeg">
+                    <img class="image" src="website_images/photography/wa/olympic/_MG_7217.jpeg">
+                </div>
+            </div> 
+        </div>
+
+        <div id="cascades" class="optionGallery">
+            <div class="biRow">    
+                <div class="biCol">
+                    <img class="image" src="website_images/photography/wa/cascades/_MG_6719.jpeg">
+                    <img class="image" src="website_images/photography/wa/cascades/_MG_6657.jpeg">
+                    <img class="image" src="website_images/photography/wa/cascades/_MG_6687 (1).jpeg">
+                    <img class="image" src="website_images/photography/wa/cascades/_MG_6708.jpeg">
+                </div> 
+                <div class="biCol">
+                    <img class="image" src="website_images/photography/wa/cascades/_MG_6649.jpeg">
+                    <img class="image" src="website_images/photography/wa/cascades/_MG_6800.jpeg">
+                    <img class="image" src="website_images/photography/wa/cascades/_MG_6812 (3).jpeg">
+                </div>
+            </div> 
+        </div>
+
+        <!-- <div id="highways" class="gallery">
             coming soon...
             <div class="row">
                 <div class="column">
@@ -345,7 +424,7 @@
             <div class="row">
             
             </div>
-        </div>
+        </div> -->
 
         <script src="script.js"></script>
         <script>

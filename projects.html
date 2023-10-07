@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="style/style.css">
+
+        <title>Sylvie Dyer: Projects</title>
+    </head>
+
+    <body>
+        <nav class="navbar">
+            <!-- Main Title -->
+            <div class="title"><a href="index.html"></a></div>
+            <!-- Navigation Menu-->
+            <ul class="navlinks">
+    
+                <!-- USING CHECKBOX HACK -->
+                <input type="checkbox" id="checkbox_toggle" />
+                <label for="checkbox_toggle" class="hamburger">&#9776;</label>
+                <!-- NAVIGATION MENUS -->
+                <div class="menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="photography.html">Photography</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li class="other">Other fun things!
+                        <!-- DROPDOWN MENU -->
+                        <ul class="dropdown">
+                            <li><a href="music.html">music & I</a></li>
+                            <li><a href="connect.html">contact me!</a></li>
+                        </ul>
+                    </li>
+                </div>
+            </ul>
+          </nav>
+
+        <div class="pageTitle">My Projects</div>
+
+        <!--intro -->
+        <div class="projectsHeader">
+            Over the past few years, I've gotten the chance to work on and contribute to various projects<br>
+            Here you can find a brief overview of some of these projects! <br><br>
+        </div>
+
+        <!--tab links-->
+        <div class="tab">
+            <button class="option" onclick="openSection(event, 'Tampi')" id="defaultOpen">TAMPI</button>
+            <button class="option" onclick="openSection(event, 'Musicle')">Musicle</button>
+            <button class="option" onclick="openSection(event, 'Quicode')">Quicode</button>
+            <button class="option" onclick="openSection(event, 'Minesweeper')">Minesweeper</button>
+            <button class="option" onclick="openSection(event, 'Other')">Other</button>
+        </div>
+
+        <!--tabs -->
+        <div id="Tampi" class="tabContent">
+           Under construction... more information coming soon! <br><br>
+           For now, please see the corresponding <a href="https://github.com/SylvieDyer/Tampi">GitHub link</a> for more information on TAMPI:)
+        </div>
+
+        <div id="Musicle" class="tabContent">
+            Under construction... more information coming soon! <br><br>
+            For now, please see the corresponding <a href="https://github.com/jakesanghavi/Audible">GitHub link</a> for more information on Musicle:)
+        </div>
+
+        <div id="Quicode" class="tabContent">
+            Under construction... more information coming soon! <br><br>
+            For now, please see the corresponding <a href="https://github.com/SylvieDyer/Tampi">GitHub link</a> for more information :)
+        </div>
+
+        <div id="Minesweeper" class="tabContent">
+            Under construction... more information coming soon! <br><br>
+            For now, please see the corresponding <a href="https://codepen.io/sylviedyer/full/mdKKmVE">link</a> to play :)
+        </div>
+
+        <div id="Other" class="tabContent">
+            To see more projects, please refer to my <a href="https://github.com/SylvieDyer">GitHub</a>.
+        </div>
+
+        <script src="script.js"></script>
+        <script>
+            // Get the element with id="defaultOpen" and click on it : for some reason doesn't occur when in js file
+            document.getElementById("defaultOpen").click();
+        </script>
+    </body>
+</html>
