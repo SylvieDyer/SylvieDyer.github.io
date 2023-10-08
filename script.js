@@ -1,7 +1,7 @@
 // MUSIC PAGE: opens a selected tab while hiding the rest
 function openSection(e, selection) {
 
-    // decalre all variables
+    // declare all variables
     var i, tabContent, option;
 
     // gets elements with class="tabContent"
@@ -40,7 +40,7 @@ function filterPhotos(e, label) {
     for (x = 0; x < gallery.length; x++) {
         gallery[x].style.display = "none";
     }
-    
+
 
     filter = document.getElementsByClassName("filter");
     for (x = 0; x < filter.length; x++) {
