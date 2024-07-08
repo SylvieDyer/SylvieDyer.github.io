@@ -1,0 +1,103 @@
+body {
+  animation: fadeInAnimation ease 3s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeInAnimation {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.menuItem {
+  font-size: 1.5rem;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-right: auto;
+  color: rgba(255, 255, 255, 0.565);
+}
+
+.fileBar {
+  left: 0;
+  position: absolute;
+
+  padding-left: 5rem;
+  padding-top: 1.7rem;
+
+  display: flex;
+  flex-direction: row;
+}
+
+
+.dock {
+  margin-top: auto;
+  /* margin-inline: auto; */
+  padding: .6rem 1.3rem;
+  height: 5rem;
+  width: 35%;
+  background-color: rgba(219, 207, 207, 0.678);
+  border-radius: 25px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  z-index: 1;
+}
+
+.app {
+  background-color: black;
+  width: 4.5rem;
+  height: 4.5rem;
+  margin: .3rem 1rem;
+
+  /* margin: 1rem; */
+  border-radius: 5px;
+  border-style: none;
+
+}
+
+.window {
+  position: absolute;
+  background-color: rgb(50, 48, 48);
+  height: min-content;
+  width: 25%;
+  padding: 1rem;
+
+  margin-top: 15rem;
+  border-radius: 25px;
+
+  color: wheat;
+}
+
+#welcome{
+  font-size: 1.2rem;
+ 
+}
+
+#blinker {
+  /* color: rgba(175, 207, 207, 0);
+  background-color: rgb(138, 157, 200); */
+  height: .8rem;
+  position: sticky;
+  /* margin: auto;
+  margin-left: .4rem;
+  margin-right: .6rem; */
+  animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+
+  0%,
+  100% {
+    background-color: transparent;
+  }
+
+  50% {
+    background-color: rgb(15 23 42);
+  }
+}
