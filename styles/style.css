@@ -1,7 +1,7 @@
 body {
   height: 95vh;
   background-color: rgb(54, 52, 52);
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif !important;
   overflow-y: hidden;
 }
 
@@ -17,6 +17,7 @@ body {
   right: 0;
   position: absolute;
 
+  padding-left: 5rem;
   padding-right: 5rem;
   padding-top: 1.7rem;
 

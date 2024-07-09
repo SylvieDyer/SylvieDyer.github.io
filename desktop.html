@@ -8,6 +8,9 @@
   <script src="https://kit.fontawesome.com/e50803d88f.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="styles/style.css">
   <link rel="stylesheet" href="styles/desktop.css">
+  <link rel="stylesheet" href="style/style.css">
+
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <title>Sylvie Dyer</title>
 </head>
 
@@ -15,33 +18,491 @@
 
 
   <div class="computer">
-    <div class="fileBar">
-      <a>
-        <div class="menuItem">About Me</div>
-      </a>
-    </div>
     <div class="menuBar">
-      <i class="fa-solid fa-battery-quarter fa-2x"></i>
-      <i class="fa-solid fa-wifi fa-2x"></i>
+      
+      <button onclick="dropdownOptions()" class="menuItem">Sylvie Dyer</button>
+      <div class="menuItems" id="dropdown">
+        <a href="#">Link 1</a>
+        <a href="#">Link 2</a>
+        <a href="#">Link 3</a>
+      </div>
+      <!-- <a>
+        <div class="menuItem">Sylvie Dyer</div>
+      </a> -->
+
+      <div>
+        <i class="fa-solid fa-battery-quarter fa-2x"></i>
+        <i class="fa-solid fa-wifi fa-2x"></i>
+      </div>
     </div>
 
     <div class="wallpaper">
     </div>
 
 
-    <div class="window">
-      <div id="welcome">
-        <b>Welcome</b><br>
-        <hr><br>
-        <p>Hi my name is Sylvie- Looks like you've found my computer!! <br><br>
-          Feel free to poke around and learn more about me. There's lots of super fun things to find :) <div id="blinker"></div>
-        </p>
+    <div id="welcome" class="window zoom-out" style="display:block;">
+      <header>
+        <span onclick="document.getElementById('welcome').style.display='none'"
+          class="close w3-display-topright">&times;</span>
+        <h3>Welcome</h3>
+      </header>
+      <div id="welcomeText">
+        <p>Hi my name is Sylvie- Looks like you've found my computer!!</p>
+        <div>Feel free to poke around and learn more about me. There's lots of super fun things to find :) <p
+            id="blinker">|</p>
+        </div>
       </div>
     </div>
 
+    <div id="app1" class="window w3-animate-zoom">
+
+      <div class="windowHeader">Photography <span onclick="document.getElementById('app1').style.display='none'"
+          class="close">&times;</span></div>
+      <div id="app1Content">
+        </header>
+        <!--intro -->
+        <div class="musicHeader">
+          I like taking pictures of the world around me!
+          <br>
+          Taken on a Cannon Rebel t5i<br><br>
+
+
+        </div>
+
+        <!--Filter Options-->
+        <div class="tab">
+          <!--       <button class="filter" onclick="filterPhotos(event, 'all')" id="defaultOpen">The Complete Collection</button> -->
+          <button class="filter" onclick="filterPhotos(event, 'nyc')" id="defaultOpen">New York</button>
+          <button class="filter" onclick="filterPhotos(event, 'wa')">Washington</button>
+          <button class="filter" onclick="filterPhotos(event, 'ggi')">Great Gull Island</button>
+          <button class="filter" onclick="filterPhotos(event, 'capecod')">Cape Cod</button>
+          <button class="filter" onclick="filterPhotos(event, 'italy')">Italy</button>
+          <button class="filter" onclick="filterPhotos(event, 'west')">Western US</button>
+        </div>
+
+
+        <!--Gallery Grid-->
+        <div id="all" class="gallery">
+          Taken with a Cannon Rebel T5i
+          <div class="row">
+            <div class="column">
+              <img class="image" src="">
+            </div>
+            <div class="column">
+              <img class="image" src="">
+            </div>
+            <div class="column">
+              <img class="image" src="">
+            </div>
+            <div class="column">
+              <img class="image" src="">
+            </div>
+          </div>
+        </div>
+
+        <!-- 4 NYC Options -->
+        <div id="nyc" class="optionGallery">
+          <div class="biRow">
+            <div class="biCol">
+              <button class="subCat" onclick="subFilter(event, 'urban')"><img
+                  src="./website_images/photography/ny/city/empire_Skyline.jpg">
+                <div class="option">URBAN</div>
+              </button>
+              <button class="subCat" onclick="subFilter(event, 'upstate')"><img
+                  src="./website_images/photography/ny/upstate/road_foggy2.jpg">
+                <div class="option">UPSTATE</div>
+              </button>
+            </div>
+            <div class="biCol">
+              <button class="subCat" onclick="subFilter(event, 'seasonal')"><img
+                  src="./website_images/photography/ny/seasonal/fall_landscape.jpg">
+                <div class="option">SEASONAL</div>
+              </button>
+              <button class="subCat" onclick="subFilter(event, 'other')"><img
+                  src="./website_images/photography/ny/other/fireisland.jpg">
+                <div class="option">OTHER</div>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- part of NYC option-->
+        <div id="urban" class="optionGallery">
+          NEW YORK CITY
+          <div class="biRow">
+            <div class="biCol">
+              <img class="image" src="./website_images/photography/ny/city/timesquare.jpg">
+              <img class="image" src="./website_images/photography/ny/city/manhattan_film.jpg">
+              <img class="image" src="./website_images/photography/ny/city/observatory_lookout2.jpg">
+              <img class="image" src="./website_images/photography/ny/city/reflections_observatory.jpg">
+              <img class="image" src="./website_images/photography/ny/city/lowereastside.jpg">
+              <img class="image" src="./website_images/photography/ny/city/unionsquare_rainy.jpeg">
+              <img class="image" src="./website_images/photography/ny/city/observatory_dark.jpg">
+              <img class="image" src="./website_images/photography/ny/city/observatory_lookout3.jpg">
+            </div>
+
+            <div class="biCol">
+              <img class="image" src="./website_images/photography/ny/city/skyline_lowerMan.jpg">
+              <img class="image" src="./website_images/photography/ny/city/empire_Skyline.jpg">
+              <img class="image" src="./website_images/photography/ny/city/unionsquare_rainy.jpeg">
+              <img class="image" src="./website_images/photography/ny/city/midtown_prism.jpg">
+              <img class="image" src="./website_images/photography/ny/city/manhattan_bridge.jpg">
+              <img class="image" src="./website_images/photography/ny/city/observatory_headon.jpg">
+              <img class="image" src="./website_images/photography/ny/city/centralpark_reservoir.jpg">
+              <img class="image" src="./website_images/photography/ny/city/observatory_lookout4.jpg">
+            </div>
+          </div>
+        </div>
+
+        <div id="upstate" class="optionGallery">
+          UPSTATE <br> everything is upstate when you live in the city...
+          <div class="biRow">
+            <div class="biCol">
+              <img class="image" src="./website_images/photography/ny/upstate/woodsy.jpg">
+              <img class="image" src="./website_images/photography/ny/upstate/mohonk_path.jpg">
+              <img class="image" src="./website_images/photography/ny/upstate/minewaska_lakepath.jpg">
+              <img class="image" src="./website_images/photography/ny/upstate/placid_lawn.jpg">
+              <img class="image" src="./website_images/photography/ny/upstate/road_snowy.jpg">
+              <img class="image" src="./website_images/photography/ny/upstate/placid_fog.jpg">
+              <img class="image" src="./website_images/photography/ny/upstate/mohonk_house_side.jpg">
+              <img class="image" src="./website_images/photography/ny/upstate/minewaska_path.jpg">
+            </div>
+            <div class="biCol">
+              <img class="image" src="./website_images/photography/ny/upstate/mohonk_lake.jpg">
+              <img class="image" src="./website_images/photography/ny/upstate/mohonk_spring.jpg">
+              <img class="image" src="./website_images/photography/ny/upstate/placid_day.jpg">
+              <img class="image" src="./website_images/photography/ny/upstate/woodsy2.jpg">
+              <img class="image" src="./website_images/photography/ny/upstate/road_water.jpg">
+              <img class="image" src="./website_images/photography/ny/upstate/mohonk_house.jpg">
+              <img class="image" src="./website_images/photography/ny/upstate/road_orange.jpg">
+              <img class="image" src="./website_images/photography/ny/upstate/placid_fog_Rosy.jpg">
+              <img class="image" src="./website_images/photography/ny/upstate/road_fall.jpg">
+            </div>
+
+          </div>
+        </div>
+
+        <div id="seasonal" class="optionGallery">
+          SEASON-SCAPES (in NY)
+          <div class="biRow">
+            <div class="biCol">
+              <img class="image" src="./website_images/photography/ny/seasonal/minewaska_snowy.jpg">
+              <img class="image" src="./website_images/photography/ny/seasonal/beach_overhead.jpg">
+              <img class="image" src="./website_images/photography/ny/seasonal/snowy_bus.jpg">
+              <img class="image" src="./website_images/photography/ny/seasonal/woodsy3.jpg">
+            </div>
+            <div class="biCol">
+              <img class="image" src="./website_images/photography/ny/seasonal/lookout_snowy.jpg">
+              <img class="image" src="./website_images/photography/ny/seasonal/beach.jpg">
+              <img class="image" src="./website_images/photography/ny/seasonal/fall_landscape.jpg">
+              <img class="image" src="./website_images/photography/ny/upstate/mohonk_spring.jpg">
+
+            </div>
+          </div>
+        </div>
+
+        <div id="other" class="optionGallery">
+          OTHER PICTURES TAKEN IN NY
+          <div class="biRow">
+            <div class="biCol">
+              <img class="image" src="./website_images/photography/ny/other/doggo.jpg">
+              <img class="image" src="./website_images/photography/ny/other/sky_light.jpg">
+              <img class="image" src="./website_images/photography/ny/other/leaves.jpg">
+            </div>
+            <div class="biCol">
+              <img class="image" src="./website_images/photography/ny/other/fireisland.jpg">
+              <img class="image" src="./website_images/photography/ny/other/sunset_road.jpg">
+              <img class="image" src="./website_images/photography/ny/other/sunset_ferry.jpeg">
+            </div>
+          </div>
+        </div>
+
+        <!-- Cape Cod -->
+        <div id="capecod" class="optionGallery">
+          CAPE COD <br> ft. Wellfleet, Orleans, and more!
+          <div class="biRow">
+            <div class="biCol">
+              <img class="image" src="./website_images/photography/cape/wellfleet2.jpg">
+              <img class="image" src="./website_images/photography/cape/foggy_beach1.jpg">
+              <img class="image" src="./website_images/photography/cape/sunset.jpg">
+              <img class="image" src="./website_images/photography/cape/phonepole.jpg">
+              <img class="image" src="./website_images/photography/cape/bay_sunset.jpg">
+              <img class="image" src="./website_images/photography/cape/beach2.jpg">
+            </div>
+            <div class="biCol">
+              <img class="image" src="./website_images/photography/cape/random portrait.jpg">
+              <img class="image" src="./website_images/photography/cape/foggy_beach2.jpg">
+              <img class="image" src="./website_images/photography/cape/birds&tree.jpg">
+              <img class="image" src="./website_images/photography/cape/wellfleet1.jpg">
+              <img class="image" src="./website_images/photography/cape/wellfleet_path.jpg">
+            </div>
+          </div>
+        </div>
+
+        <!-- GGI -->
+        <div id="ggi" class="optionGallery">
+          GREAT GULL ISLAND <br> aka. Island of the Terns <br>
+          <div class="biRow">
+            <div class="biCol">
+              <img class="image" src="./website_images/photography/GGI/sunset_purple.jpg">
+              <img class="image" src="./website_images/photography/GGI/whitesky.jpg">
+              <img class="image" src="./website_images/photography/GGI/birds.jpg">
+              <img class="image" src="./website_images/photography/GGI/sunset_blue.jpg">
+              <img class="image" src="./website_images/photography/GGI/bird2.jpg">
+            </div>
+            <div class="biCol">
+              <img class="image" src="./website_images/photography/GGI/mainlawn.jpg">
+              <img class="image" src="./website_images/photography/GGI/flowerhats.jpg">
+              <img class="image" src="./website_images/photography/GGI/bird1.jpg">
+              <img class="image" src="./website_images/photography/GGI/sundown.jpg">
+              <img class="image" src="./website_images/photography/GGI/sunset_purple_closeup.jpg">
+            </div>
+            also the land of breath taking sunsets
+          </div>
+        </div>
+
+        <!-- Italy -->
+        <div id="italy" class="optionGallery">
+          ITALY <br>
+          ft. Venice, Florence, Rome, and places in between!
+          <div class="biRow">
+            <div class="biCol">
+              <img class="image" src="./website_images/photography/italy/venice_spot.jpg">
+              <img class="image" src="./website_images/photography/italy/park_portrait.jpg">
+              <img class="image" src="./website_images/photography/italy/venice_passageway.jpg">
+              <img class="image" src="./website_images/photography/italy/countryside_overlook.jpg">
+            </div>
+            <div class="biCol">
+              <img class="image" src="./website_images/photography/italy/venice_sideway.jpg">
+              <img class="image" src="./website_images/photography/italy/church.jpg">
+              <img class="image" src="./website_images/photography/italy/park_overlook.jpg">
+              <img class="image" src="./website_images/photography/italy/colosseum.jpg">
+              <img class="image" src="./website_images/photography/italy/sunshower.jpg">
+            </div>
+          </div>
+        </div>
+
+        <!-- WA Options -->
+        <div id="wa" class="optionGallery">
+          <div class="biRow">
+            <div class="biCol">
+              <button class="subCat" onclick="subFilter(event, 'snoqualmie')"><img
+                  src="./website_images/photography/wa/snoqualmie/snoqualmieL.jpeg">
+                <div class="option">SNOQUALMIE VALLEY</div>
+              </button>
+              <button class="subCat" onclick="subFilter(event, 'sea')"><img id="seattle"
+                  src="./website_images/photography/west/spheres.jpg">
+                <div class="option">SEATTLE</div>
+              </button>
+            </div>
+            <div class="biCol">
+              <button class="subCat" onclick="subFilter(event, 'rainier')"><img
+                  src="./website_images/photography/wa/rainier/rainierL.jpeg">
+                <div class="option">MT. RAINIER</div>
+              </button>
+              <button class="subCat" onclick="subFilter(event, 'cascades')"><img
+                  src="./website_images/photography/wa/cascades/cascadesL.jpeg">
+                <div class="option">NORTH CASCADES</div>
+              </button>
+              <button class="subCat" onclick="subFilter(event, 'olympic')"><img
+                  src="./website_images/photography/wa/olympic/olympicL.jpeg">
+                <div class="option">OLYMPIC PENINSULA</div>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- West Options -->
+        <div id="west" class="optionGallery">
+          <div class="biRow">
+            <div class="biCol">
+              <button class="subCat" onclick="subFilter(event, 'cali')"><img
+                  src="./website_images/photography/west/redwoods.jpg">
+                <div class="option" style="background-color:rgba(132, 132, 132, 0.53); padding: .3rem">CALI</div>
+              </button>
+            </div>
+            <div class="biCol">
+              <button class="subCat" onclick="subFilter(event, 's.w')"><img
+                  src="./website_images/photography/west/brycecanyon_landscape2.jpg">
+                <div class="option" style="background-color: rgba(132, 132, 132, 0.53); padding: .3rem">SOUTHWEST
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cali -->
+        <div id="cali" class="optionGallery">
+          CALIFORNIA <br>
+          ft. Yosemite & some Redwoods!
+          <div class="biRow">
+            <div class="biCol">
+              <img class="image" src="./website_images/photography/west/redwoods.jpg">
+              <img class="image" src="./website_images/photography/west/yosemite_portrait.jpg">
+              <img class="image" src="./website_images/photography/west/cover.jpg">
+              <img class="image" src="./website_images/photography/west/reddwoods2.jpg">
+
+            </div>
+            <div class="biCol">
+              <img class="image" src="./website_images/photography/west/yoesmite_waterfall_landscape.jpg">
+              <img class="image" src="./website_images/photography/west/yoesmite_waterfall_closeup.jpg">
+              <img class="image" src="./website_images/photography/west/trees_portrait.jpg">
+              <img class="image" src="./website_images/photography/west/yosemite_waterfall_landscape2.jpg">
+            </div>
+          </div>
+        </div>
+
+        <!-- Southwest -->
+        <div id="s.w" class="optionGallery">
+          UTAH & ARIZONA<br>
+          ft. Bryce Canyon, Zion, Sedona, and places in between!
+          <div class="biRow">
+            <div class="biCol">
+              <img class="image" src="./website_images/photography/west/brycecanyon_landscape.jpg">
+              <img class="image" src="./website_images/photography/west/brycecanyon_upward.jpg">
+
+              <img class="image" src="./website_images/photography/west/diner.jpg">
+              <img class="image" src="./website_images/photography/west/road_forest.jpg">
+              <img class="image" src="./website_images/photography/west/road_random.jpg">
+              <img class="image" src="./website_images/photography/west/road_mountains.jpg">
+
+            </div>
+            <div class="biCol">
+              <img class="image" src="./website_images/photography/west/brycecanyon1.jpg">
+              <img class="image" src="./website_images/photography/west/brycecanyon_landscape2.jpg">
+              <img class="image" src="./website_images/photography/west/grand_canyon.jpg">
+
+              <img class="image" src="./website_images/photography/west/sedona_landscape.jpg">
+              <img class="image" src="./website_images/photography/west/road_sunrise.jpg">
+              <img class="image" src="./website_images/photography/west/road_utah.JPG">
+
+
+              <img class="image" src="./website_images/photography/west/zion_valley.jpg">
+            </div>
+          </div>
+        </div>
+
+        <!-- part of WA Options -->
+        <div id="sea" class="optionGallery">
+          <div class="biRow">
+            <div class="biCol">
+              <img class="image" src="./website_images/photography/west/wheel.jpeg">
+              <img class="image" src="./website_images/photography/west/mountains.jpg">
+            </div>
+            <div class="biCol">
+              <img class="image" src="./website_images/photography/west/spheres.jpg">
+              <img class="image" src="./website_images/photography/west/buildings.jpeg">
+            </div>
+          </div>
+        </div>
+
+        <div id="rainier" class="optionGallery">
+          <div class="biRow">
+            <div class="biCol">
+              <img class="image" src="./website_images/photography/wa/rainier/rainier1.jpeg">
+              <img class="image" src="./website_images/photography/wa/rainier/rainier2.jpeg">
+              <img class="image" src=" website_images/photography/wa/rainier/rainier3.jpeg">
+              <img class="image" src="./website_images/photography/wa/rainier/rainier4.jpeg">
+              <img class="image" src="./website_images/photography/wa/rainier/rainier5.jpeg">
+            </div>
+            <div class="biCol">
+              <img class="image" src="./website_images/photography/wa/rainier/rainierL.jpeg">
+              <img class="image" src="./website_images/photography/wa/rainier/rainier6.jpeg">
+              <img class="image" src="./website_images/photography/wa/rainier/rainier7.jpeg">
+              <img class="image" src="./website_images/photography/wa/rainier/rainier8.jpeg">
+              <img class="image" src="./website_images/photography/wa/rainier/rainier9.jpeg">
+            </div>
+          </div>
+        </div>
+
+        <div id="snoqualmie" class="optionGallery">
+          <div class="biRow">
+            <div class="biCol">
+              <img class="image" src="./website_images/photography/wa/snoqualmie/s1.jpeg">
+              <img class="image" src="./website_images/photography/wa/snoqualmie/s2.jpeg">
+              <img class="image" src="./website_images/photography/wa/snoqualmie/s3.jpeg">
+              <img class="image" src="./website_images/photography/wa/snoqualmie/forest1.jpeg">
+            </div>
+            <div class="biCol">
+              <img class="image" src="./website_images/photography/wa/snoqualmie/snoqualmieL.jpeg">
+              <img class="image" src="./website_images/photography/wa/snoqualmie/s4.jpeg">
+              <img class="image" src="./website_images/photography/wa/snoqualmie/s5.jpeg">
+              <img class="image" src="./website_images/photography/wa/snoqualmie/s6.jpeg">
+            </div>
+
+          </div>
+        </div>
+
+        <div id="olympic" class="optionGallery">
+          <div class="biRow">
+            <div class="biCol">
+              <img class="image" src="./website_images/photography/wa/olympic/olympic1.jpeg">
+              <img class="image" src="./website_images/photography/wa/olympic/olympic2.jpeg">
+            </div>
+            <div class="biCol">
+              <img class="image" src="./website_images/photography/wa/olympic/olympic3.jpeg">
+              <img class="image" src="./website_images/photography/wa/olympic/olympic4.jpeg">
+              <img class="image" src="./website_images/photography/wa/olympic/olympicL.jpeg">
+            </div>
+          </div>
+        </div>
+
+        <div id="cascades" class="optionGallery">
+          <div class="biRow">
+            <div class="biCol">
+              <img class="image" src="./website_images/photography/wa/cascades/cascades1.jpeg">
+              <img class="image" src="./website_images/photography/wa/cascades/cascades2.jpeg">
+              <img class="image" src="./website_images/photography/wa/cascades/cascades3.jpeg">
+              <img class="image" src="./website_images/photography/wa/cascades/cascadesL.jpeg">
+            </div>
+            <div class="biCol">
+              <img class="image" src="./website_images/photography/wa/cascades/cascades4.jpeg">
+              <img class="image" src="./website_images/photography/wa/cascades/cascades5.jpeg">
+              <img class="image" src="./website_images/photography/wa/cascades/cascades6.jpeg">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- <div id="highways" class="gallery">
+      coming soon...
+      <div class="row">
+          <div class="column">
+              <img class="image" src="">
+          </div>
+          <div class="column">
+              <img class="image" src="">
+          </div>
+          <div class="column">
+              <img class="image" src="">
+          </div>
+          <div class="column">
+              <img class="image" src="">
+          </div>
+      </div>
+  </div>
+
+  <div id="misc" class="gallery">
+      coming soon...
+      <div class="row">
+      
+      </div>
+  </div> -->
+
+      <script src="script.js"></script>
+      <script>
+        // Get the element with id="defaultOpen" and click on it : for some reason doesn't occur when in js file
+        document.getElementById("defaultOpen").click();
+      </script>
+
+
+
+      </p>
+
+    </div>
 
     <div class="dock">
-      <button class="app"></button>
+      <button onclick="document.getElementById('app1').style.display='block'" class="app"></button>
       <button class="app"></button>
       <button class="app"></button>
       <button class="app"></button>

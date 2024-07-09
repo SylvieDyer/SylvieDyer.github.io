@@ -2,6 +2,7 @@ body {
   animation: fadeInAnimation ease 3s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif !important;
 }
 
 @keyframes fadeInAnimation {
@@ -18,28 +19,40 @@ body {
   font-size: 1.5rem;
   margin-top: auto;
   margin-bottom: auto;
-  margin-right: auto;
   color: rgba(255, 255, 255, 0.565);
+  padding: .2rem 1rem;
+  background-color:  rgba(255, 255, 255, 0.165);
+
+  border-radius: 25px;
+  border-style: none;
 }
 
-.fileBar {
-  left: 0;
-  position: absolute;
+.menuItem:hover{ 
+  background-color:  rgba(255, 255, 255, 0.056);
+}
 
-  padding-left: 5rem;
-  padding-top: 1.7rem;
+.menuItems{ 
+  display: none;
+  position: absolute !important;
+  margin: 2rem;
+}
 
+.show {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+}
+.menuBar{
+  width: 100%;
+  justify-content: space-between;
 }
 
 
 .dock {
   margin-top: auto;
-  /* margin-inline: auto; */
-  padding: .6rem 1.3rem;
-  height: 5rem;
-  width: 35%;
+  margin-bottom: 1rem;
+  padding: 0 1.3rem;
+  height: 4.5rem;
+  width: 30%;
   background-color: rgba(219, 207, 207, 0.678);
   border-radius: 25px;
 
@@ -50,54 +63,108 @@ body {
 }
 
 .app {
-  background-color: black;
-  width: 4.5rem;
-  height: 4.5rem;
-  margin: .3rem 1rem;
+  background-color: rgb(66, 58, 58);
+  width: 4.1rem;
+  height: 4.1rem;
+  margin-top: auto;
+  margin-bottom: auto;
 
-  /* margin: 1rem; */
   border-radius: 5px;
   border-style: none;
-
 }
 
 .window {
+  z-index: 3;
+  display: none;
+
   position: absolute;
-  background-color: rgb(50, 48, 48);
   height: min-content;
-  width: 25%;
+  /* display: block !important; */
+}
+
+.windowHeader {
+  /* padding: 1rem 0; */
+  border-bottom: 1px solid white;
+  font-size: 1.5rem;
+}
+
+#welcome {
+  font-size: 1.2rem;
+  background-color: rgb(50, 48, 48);
+  width: 35%;
   padding: 1rem;
 
   margin-top: 15rem;
   border-radius: 25px;
-
   color: wheat;
 }
 
-#welcome{
-  font-size: 1.2rem;
- 
-}
-
 #blinker {
-  /* color: rgba(175, 207, 207, 0);
-  background-color: rgb(138, 157, 200); */
-  height: .8rem;
-  position: sticky;
-  /* margin: auto;
-  margin-left: .4rem;
-  margin-right: .6rem; */
+  color: rgb(50, 48, 48);
+  display: inline;
   animation: blink 1.5s infinite;
 }
-
 @keyframes blink {
-
   0%,
   100% {
     background-color: transparent;
   }
 
   50% {
-    background-color: rgb(15 23 42);
+    background-color: wheat;
+    color: wheat;
   }
+}
+
+#app1 {
+  font-size: 1.2rem;
+  background-color: rgb(221, 214, 214);
+  width: 90%;
+  height: 78%;
+  padding : 1rem;
+  
+  margin: auto;
+  margin-top: 5rem;
+  border-radius: 25px;
+  color: black;
+  overflow: hidden;
+
+}
+
+#app1Content {
+  margin-top: 3rem;
+  overflow: scroll !important;
+  font-size: 1.2rem;
+  /* background-color: rgb(221, 214, 214); */
+  width: 100%;
+  height: 85%;
+  margin-inline: auto;
+  margin-top: 0;
+  padding-top: 3rem;
+
+
+  background-color: rgb(231, 223, 223);
+  color: black;
+}
+
+.close {
+  border: none;
+  display:block;
+  float: right;
+  position: absolute !important;
+  padding: 8px 16px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  background-color: inherit;
+  text-align: center;
+  cursor: pointer;
+  white-space: nowrap;
+  border-radius: 100px;
+  z-index: 4;
+  position: relative;
+  right:0;
+  top:0;
+  
+
 }
