@@ -5,6 +5,10 @@ body {
   overflow-y: hidden;
 }
 
+a {
+  text-decoration: none;
+}
+
 .computer {
   display: flex;
   height: 100%;
@@ -13,6 +17,7 @@ body {
   justify-content: center;
 }
 
+/* -----MENU BAR----- */
 .menuBar {
   right: 0;
   position: absolute;
@@ -30,8 +35,13 @@ body {
   color: rgba(255, 255, 255, 0.565);
 }
 
-#icons {
-  float: right;
+/* -----LOCK SCREEN----- */
+.lockScreen {
+  text-align: center;
+  justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  position: relative;
 }
 
 /* small screen styling */
@@ -44,15 +54,6 @@ body {
     position: relative;
   }
 }
-
-.lockScreen {
-  text-align: center;
-  justify-content: space-between;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-}
-
 
 .clock,
 .login {
@@ -73,20 +74,14 @@ body {
 #time {
   font-size: 5rem;
 
-  /* font-weight: bolder; */
   font-weight: 1000;
   margin-top: 1rem;
 }
 
 .login {
-
   display: flex;
   flex-direction: column;
   margin-inline: auto;
-}
-
-#user {
-  color: white;
 }
 
 #userCircle {
@@ -97,6 +92,10 @@ body {
   border-radius: 50%;
   display: inline-block;
   margin: auto;
+}
+
+#user {
+  color: white;
 }
 
 #loginText {
@@ -154,11 +153,7 @@ body {
   margin: auto;
 }
 
-a {
-  text-decoration: none;
-}
-
-
+/* -----WALLPAPER------ */
 .wallpaper {
 
   position: absolute;
@@ -183,8 +178,6 @@ a {
   -o-animation: fadeIn 1 1s ease-out;
   animation: fadeIn 1 1s ease-out;
 }
-
-
 
 .light {
   position: absolute;

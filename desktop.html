@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
@@ -9,69 +8,73 @@
   <link rel="stylesheet" href="styles/style.css">
   <link rel="stylesheet" href="styles/desktop.css">
   <link rel="stylesheet" href="style/style.css">
-
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <title>Sylvie Dyer</title>
 </head>
 
 <body>
-
-
   <div class="computer">
+
+    <!-- top bar -->
     <div class="menuBar">
-      
+      <!-- dropdown (left side) -->
       <button onclick="dropdownOptions()" class="menuItem">Sylvie Dyer</button>
       <div class="menuItems" id="dropdown">
-        <a href="#">Link 1</a>
+        <a href="#">Link 1</a> 
         <a href="#">Link 2</a>
         <a href="#">Link 3</a>
+        <!-- about me, linkedin, spotify ? , email ?  -->
       </div>
       <!-- <a>
         <div class="menuItem">Sylvie Dyer</div>
       </a> -->
 
+      <!-- computer icons (right side) -->
       <div>
         <i class="fa-solid fa-battery-quarter fa-2x"></i>
         <i class="fa-solid fa-wifi fa-2x"></i>
       </div>
     </div>
 
+    <!-- wallpaper -->
     <div class="wallpaper">
     </div>
 
-
+    <!-- welcome window -->
     <div id="welcome" class="window zoom-out" style="display:block;">
-      <header>
+      <!-- welcome header -->
+      <header class="windowHeader">
         <span onclick="document.getElementById('welcome').style.display='none'"
           class="close w3-display-topright">&times;</span>
-        <h3>Welcome</h3>
+        Welcome
       </header>
+      <!-- welcome content -->
       <div id="welcomeText">
         <p>Hi my name is Sylvie- Looks like you've found my computer!!</p>
-        <div>Feel free to poke around and learn more about me. There's lots of super fun things to find :) <p
-            id="blinker">|</p>
+        <div>Feel free to poke around and learn more about me. There's lots of super fun things to find :)
+          <p id="blinker">|</p>
         </div>
       </div>
     </div>
 
-    <div id="app1" class="window w3-animate-zoom">
-
-      <div class="windowHeader">Photography <span onclick="document.getElementById('app1').style.display='none'"
-          class="close">&times;</span></div>
-      <div id="app1Content">
+    <!-- photography app -->
+    <div id="photography" class="window w3-animate-zoom">
+      <!-- photography app header -->
+      <header class="windowHeader">
+        <span onclick="document.getElementById('photography').style.display='none'" class="close">&times;</span>
+        Photography
+      </header>
+      <!-- photography app content -->
+      <div id="photographyContent">
         </header>
         <!--intro -->
-        <div class="musicHeader">
-          I like taking pictures of the world around me!
-          <br>
-          Taken on a Cannon Rebel t5i<br><br>
-
-
+        <div class="musicHeader" style="font-size: 1.2rem">
+          <i>A picture is worth a thousand words...</i><br><br>
         </div>
 
         <!--Filter Options-->
         <div class="tab">
-          <!--       <button class="filter" onclick="filterPhotos(event, 'all')" id="defaultOpen">The Complete Collection</button> -->
+          <button class="filter" onclick="filterPhotos(event, 'more')">Some Words</button>
           <button class="filter" onclick="filterPhotos(event, 'nyc')" id="defaultOpen">New York</button>
           <button class="filter" onclick="filterPhotos(event, 'wa')">Washington</button>
           <button class="filter" onclick="filterPhotos(event, 'ggi')">Great Gull Island</button>
@@ -80,23 +83,18 @@
           <button class="filter" onclick="filterPhotos(event, 'west')">Western US</button>
         </div>
 
-
-        <!--Gallery Grid-->
-        <div id="all" class="gallery">
-          Taken with a Cannon Rebel T5i
+        <!--Text Section-->
+        <div id="more" class="gallery">
           <div class="row">
-            <div class="column">
-              <img class="image" src="">
-            </div>
-            <div class="column">
-              <img class="image" src="">
-            </div>
-            <div class="column">
-              <img class="image" src="">
-            </div>
-            <div class="column">
-              <img class="image" src="">
-            </div>
+            One of my favorite hobbies is taking photos of the world around me! In this app you can see some of the
+            places I've been to as seen through my eyes... or, rather, through the lens of my Cannon Rebel T5i ;)
+            <br><br>
+            I love exploring new places, and I hope to travel more in the coming years. Some of my bucket list travel
+            destinations are Iceland, Alberta (Canada), the fjords of Norway, and New Zealand, to name a few. *Note that
+            some of these locations are slightly more refined than the others... <br><br>
+            These photos are a collection of some of my favorite places, wildest adventures, and the places I've called
+            home over the years. I won't bore you with the backstory for each of them, but I hope you enjoy looking
+            through this collection of photos that I've compiled over the past decade :)
           </div>
         </div>
 
@@ -282,36 +280,6 @@
           </div>
         </div>
 
-        <!-- WA Options -->
-        <div id="wa" class="optionGallery">
-          <div class="biRow">
-            <div class="biCol">
-              <button class="subCat" onclick="subFilter(event, 'snoqualmie')"><img
-                  src="./website_images/photography/wa/snoqualmie/snoqualmieL.jpeg">
-                <div class="option">SNOQUALMIE VALLEY</div>
-              </button>
-              <button class="subCat" onclick="subFilter(event, 'sea')"><img id="seattle"
-                  src="./website_images/photography/west/spheres.jpg">
-                <div class="option">SEATTLE</div>
-              </button>
-            </div>
-            <div class="biCol">
-              <button class="subCat" onclick="subFilter(event, 'rainier')"><img
-                  src="./website_images/photography/wa/rainier/rainierL.jpeg">
-                <div class="option">MT. RAINIER</div>
-              </button>
-              <button class="subCat" onclick="subFilter(event, 'cascades')"><img
-                  src="./website_images/photography/wa/cascades/cascadesL.jpeg">
-                <div class="option">NORTH CASCADES</div>
-              </button>
-              <button class="subCat" onclick="subFilter(event, 'olympic')"><img
-                  src="./website_images/photography/wa/olympic/olympicL.jpeg">
-                <div class="option">OLYMPIC PENINSULA</div>
-              </button>
-            </div>
-          </div>
-        </div>
-
         <!-- West Options -->
         <div id="west" class="optionGallery">
           <div class="biRow">
@@ -378,6 +346,36 @@
 
 
               <img class="image" src="./website_images/photography/west/zion_valley.jpg">
+            </div>
+          </div>
+        </div>
+
+        <!-- WA Options -->
+        <div id="wa" class="optionGallery">
+          <div class="biRow">
+            <div class="biCol">
+              <button class="subCat" onclick="subFilter(event, 'snoqualmie')"><img
+                  src="./website_images/photography/wa/snoqualmie/snoqualmieL.jpeg">
+                <div class="option">SNOQUALMIE VALLEY</div>
+              </button>
+              <button class="subCat" onclick="subFilter(event, 'sea')"><img id="seattle"
+                  src="./website_images/photography/west/spheres.jpg">
+                <div class="option">SEATTLE</div>
+              </button>
+            </div>
+            <div class="biCol">
+              <button class="subCat" onclick="subFilter(event, 'rainier')"><img
+                  src="./website_images/photography/wa/rainier/rainierL.jpeg">
+                <div class="option">MT. RAINIER</div>
+              </button>
+              <button class="subCat" onclick="subFilter(event, 'cascades')"><img
+                  src="./website_images/photography/wa/cascades/cascadesL.jpeg">
+                <div class="option">NORTH CASCADES</div>
+              </button>
+              <button class="subCat" onclick="subFilter(event, 'olympic')"><img
+                  src="./website_images/photography/wa/olympic/olympicL.jpeg">
+                <div class="option">OLYMPIC PENINSULA</div>
+              </button>
             </div>
           </div>
         </div>
@@ -463,54 +461,22 @@
           </div>
         </div>
       </div>
-
-      <!-- <div id="highways" class="gallery">
-      coming soon...
-      <div class="row">
-          <div class="column">
-              <img class="image" src="">
-          </div>
-          <div class="column">
-              <img class="image" src="">
-          </div>
-          <div class="column">
-              <img class="image" src="">
-          </div>
-          <div class="column">
-              <img class="image" src="">
-          </div>
-      </div>
-  </div>
-
-  <div id="misc" class="gallery">
-      coming soon...
-      <div class="row">
-      
-      </div>
-  </div> -->
-
-      <script src="script.js"></script>
-      <script>
-        // Get the element with id="defaultOpen" and click on it : for some reason doesn't occur when in js file
-        document.getElementById("defaultOpen").click();
-      </script>
-
-
-
-      </p>
-
     </div>
 
     <div class="dock">
-      <button onclick="document.getElementById('app1').style.display='block'" class="app"></button>
+      <button onclick="document.getElementById('photography').style.display='block'" class="app"></button>
       <button class="app"></button>
       <button class="app"></button>
       <button class="app"></button>
       <button class="app"></button>
     </div>
-
-
   </div>
+
+  <script src="script.js"></script>
+  <script>
+    // Get the element with id="defaultOpen" and click on it : for some reason doesn't occur when in js file
+    document.getElementById("defaultOpen").click();
+  </script>
 </body>
 
 </html>

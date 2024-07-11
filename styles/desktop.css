@@ -3,18 +3,10 @@ body {
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif !important;
+
 }
 
-@keyframes fadeInAnimation {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
+/* -----MENU BAR------ */
 .menuItem {
   font-size: 1.5rem;
   margin-top: auto;
@@ -46,7 +38,7 @@ body {
   justify-content: space-between;
 }
 
-
+/* -----DOCK------ */
 .dock {
   margin-top: auto;
   margin-bottom: 1rem;
@@ -73,12 +65,12 @@ body {
   border-style: none;
 }
 
+/* -----WINDOW----- */
 .window {
   z-index: 3;
   display: none;
-
   position: absolute;
-  height: min-content;
+  /* max-height: min-content; */
   /* display: block !important; */
 }
 
@@ -86,68 +78,10 @@ body {
   /* padding: 1rem 0; */
   border-bottom: 1px solid white;
   font-size: 1.5rem;
-}
-
-#welcome {
-  font-size: 1.2rem;
-  background-color: rgb(50, 48, 48);
-  width: 35%;
   padding: 1rem;
-
-  margin-top: 15rem;
-  border-radius: 25px;
-  color: wheat;
 }
 
-#blinker {
-  color: rgb(50, 48, 48);
-  display: inline;
-  animation: blink 1.5s infinite;
-}
-@keyframes blink {
-  0%,
-  100% {
-    background-color: transparent;
-  }
-
-  50% {
-    background-color: wheat;
-    color: wheat;
-  }
-}
-
-#app1 {
-  font-size: 1.2rem;
-  background-color: rgb(221, 214, 214);
-  width: 90%;
-  height: 78%;
-  padding : 1rem;
-  
-  margin: auto;
-  margin-top: 5rem;
-  border-radius: 25px;
-  color: black;
-  overflow: hidden;
-
-}
-
-#app1Content {
-  margin-top: 3rem;
-  overflow: scroll !important;
-  font-size: 1.2rem;
-  /* background-color: rgb(221, 214, 214); */
-  width: 100%;
-  height: 85%;
-  margin-inline: auto;
-  margin-top: 0;
-  padding-top: 3rem;
-
-
-  background-color: rgb(231, 223, 223);
-  color: black;
-}
-
-.close {
+.close { /* closing windows */
   border: none;
   display:block;
   float: right;
@@ -165,6 +99,82 @@ body {
   position: relative;
   right:0;
   top:0;
-  
+}
 
+/* -----WELCOME WINDOW----- */
+#welcome {
+  font-size: 1.2rem;
+  background-color: rgb(50, 48, 48);
+  width: 35%;
+  padding: 1rem;
+
+  margin-top: 15rem;
+  border-radius: 25px;
+  color: wheat;
+}
+
+#welcomeText {
+  padding: 2rem;
+}
+
+#blinker {
+  color: rgb(50, 48, 48);
+  display: inline;
+  animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    background-color: transparent;
+  }
+
+  50% {
+    background-color: wheat;
+    color: wheat;
+  }
+}
+
+/* -----PHOTOGRAPHY WINDOW----- */
+#photography {
+  font-size: 1.2rem;
+  background-color: rgb(216, 205, 205);
+  width: 90%;
+  height: 78%;
+  /* padding : 1rem; */
+  
+  margin: auto;
+  margin-top: 5rem;
+  border-radius: 25px;
+  color: black;
+  overflow: hidden;
+}
+
+#photographyContent {
+  margin-top: 3rem;
+  overflow: scroll !important;
+  font-size: 1.2rem;
+  /* background-color: rgb(221, 214, 214); */
+  position: relative;
+  width: 100%;
+  height: 96%;
+  margin-inline: auto;
+  margin-top: 0;
+  padding-top: 3rem;
+
+  border-radius: 25px;
+  background-color: rgb(231, 223, 223);
+  color: black;
+}
+
+
+
+@keyframes fadeInAnimation {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
