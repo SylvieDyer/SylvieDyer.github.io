@@ -1,0 +1,131 @@
+/* ── Lock screen ──────────────────────────────────────────────── */
+.lock-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 900;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  place-items: center;
+  padding: 8vh 24px 12vh;
+  color: #fff;
+  cursor: pointer;
+  user-select: none;
+  transition: opacity var(--t-slow) var(--ease-out),
+              transform var(--t-slow) var(--ease-out),
+              filter var(--t-slow) var(--ease-out);
+}
+
+.lock-screen__wallpaper {
+  position: absolute;
+  inset: -4%;                       /* bleed so the blur has no soft edges */
+  z-index: -1;
+  background: var(--wall-blur);
+  background-size: cover;
+  filter: blur(28px) saturate(1.15);
+  transform: scale(1.06);
+  transition: filter var(--t-slow) var(--ease-out),
+              transform var(--t-slow) var(--ease-out);
+}
+
+/* Big clock, top area */
+.lock-screen__clock {
+  align-self: start;
+  text-align: center;
+  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.35);
+  animation: lock-in 700ms var(--ease-out) both;
+}
+.lock-screen__day {
+  display: block;
+  font-size: clamp(18px, 2.5vw, 22px);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  opacity: 0.92;
+}
+.lock-screen__time {
+  display: block;
+  font-size: clamp(64px, 13vw, 128px);
+  font-weight: 350;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Avatar + hint, bottom area */
+.lock-screen__user {
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+  animation: lock-in 700ms 120ms var(--ease-out) both;
+}
+
+.avatar {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: rgba(255, 255, 255, 0.20);
+  border: 1px solid rgba(255, 255, 255, 0.42);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+}
+/* Swap the initials block for: <img src="assets/avatar.jpg" alt=""> */
+.avatar__initials {
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.lock-screen__name {
+  font-size: 16px;
+  font-weight: 600;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.4);
+}
+
+.lock-screen__hint {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 6px;
+  padding: 7px 15px;
+  font-size: 12.5px;
+  font-weight: 500;
+  border-radius: 999px;
+  color: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+.lock-screen__hint-pulse {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: #fff;
+  animation: hint-pulse 1.9s var(--ease-in-out) infinite;
+}
+
+/* ── Unlock: fade + lift the lock screen, un-blur the wallpaper ── */
+body[data-stage="waking"] .lock-screen,
+body[data-stage="desktop"] .lock-screen {
+  opacity: 0;
+  transform: scale(1.09) translateY(-2%);
+  filter: blur(6px);
+  pointer-events: none;
+}
+body[data-stage="waking"] .lock-screen__wallpaper {
+  filter: blur(0) saturate(1);
+  transform: scale(1);
+}
+/* Fully removed from the a11y tree + paint once the desktop owns the screen */
+body[data-stage="desktop"] .lock-screen { visibility: hidden; }
+
+@keyframes lock-in {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes hint-pulse {
+  0%, 100% { opacity: 0.35; transform: scale(0.8); }
+  50%      { opacity: 1;    transform: scale(1.15); }
+}

@@ -1,0 +1,110 @@
+/* ── Dock ─────────────────────────────────────────────────────── */
+.dock-wrap {
+  position: absolute;
+  bottom: 6px;
+  left: 0;
+  right: 0;
+  z-index: 300;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.dock {
+  pointer-events: auto;
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+  height: var(--dock-h);
+  padding: 6px 8px 8px;
+  border-radius: 18px;
+  background: var(--glass);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  box-shadow: var(--shadow-dock), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(26px) saturate(1.8);
+  -webkit-backdrop-filter: blur(26px) saturate(1.8);
+}
+
+.dock__item {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  /* Scale set per-item by dock.js on mousemove; transform-origin keeps
+     growth anchored to the dock floor so icons rise instead of centering. */
+  transform: scale(var(--mag, 1));
+  transform-origin: bottom center;
+  transition: transform 160ms var(--ease-out);
+}
+.dock__item:active { transform: scale(calc(var(--mag, 1) * 0.86)); }
+
+.dock__art {
+  width: 46px;
+  height: 46px;
+  filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.3));
+}
+
+/* Running indicator */
+.dock__dot {
+  width: 4px;
+  height: 4px;
+  margin-top: 3px;
+  border-radius: 50%;
+  background: var(--text);
+  opacity: 0;
+  transition: opacity var(--t-fast);
+}
+.dock__item.is-running .dock__dot { opacity: 0.65; }
+
+/* Tooltip */
+.dock__tip {
+  position: absolute;
+  bottom: calc(100% + 12px);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px) scale(calc(1 / var(--mag, 1)));
+  transform-origin: bottom center;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+  color: var(--text);
+  background: var(--glass-strong);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-panel);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--t-fast), transform var(--t-fast);
+}
+.dock__item:hover .dock__tip,
+.dock__item:focus-visible .dock__tip {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0) scale(calc(1 / var(--mag, 1)));
+}
+
+.dock__sep {
+  align-self: center;
+  width: 1px;
+  height: 40px;
+  margin: 0 4px;
+  background: var(--border-strong);
+}
+
+/* ── Full-screen transition ghost ─────────────────────────────
+   A cloned dock icon that flies from the dock and grows to fill the
+   screen, so the app page reads as "the icon opened into this page".
+   ─────────────────────────────────────────────────────────────── */
+.zoom-ghost {
+  position: fixed;
+  z-index: 700;
+  pointer-events: none;
+  opacity: 0;
+  border-radius: 12px;
+  will-change: transform, opacity;
+}
+.zoom-ghost.is-flying {
+  opacity: 1;
+  transition: transform 420ms var(--ease-out), opacity 300ms 200ms linear,
+              border-radius 420ms var(--ease-out);
+}

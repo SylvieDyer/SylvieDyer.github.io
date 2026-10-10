@@ -1,101 +1,343 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="style/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Software Update — [Your Name]</title>
+<meta name="description" content="This site is being updated.... Come back soon!">
 
-    <title>Sylvie Dyer</title>
+<style>
+  :root {
+    --bg-top:    #0b1324;
+    --bg-mid:    #1a1f3a;
+    --bg-bot:    #2a1b3d;
+    --fg:        #f3f4f8;
+    --fg-dim:    #a7adc3;
+    --ring-bg:   rgba(255, 255, 255, 0.08);
+    --ring-fg:   #8ab4ff;
+    --bubble:    rgba(255, 255, 255, 0.08);
+    --bubble-br: rgba(255, 255, 255, 0.18);
+  }
+
+  @media (prefers-color-scheme: light) {
+    :root {
+      --bg-top:    #eef2fb;
+      --bg-mid:    #e6ecfa;
+      --bg-bot:    #f3e9f6;
+      --fg:        #1b1f2a;
+      --fg-dim:    #5a6075;
+      --ring-bg:   rgba(0, 0, 0, 0.08);
+      --ring-fg:   #4a7bff;
+      --bubble:    rgba(255, 255, 255, 0.7);
+      --bubble-br: rgba(0, 0, 0, 0.08);
+    }
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    height: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI",
+                 system-ui, sans-serif;
+    color: var(--fg);
+    overflow: hidden;
+  }
+
+  body {
+    background:
+      radial-gradient(ellipse at top left,    var(--bg-top) 0%, transparent 55%),
+      radial-gradient(ellipse at bottom right, var(--bg-bot) 0%, transparent 55%),
+      var(--bg-mid);
+    background-attachment: fixed;
+    display: grid;
+    place-items: center;
+    position: relative;
+  }
+
+  /* ── Floating-bubble field ──────────────────────────── */
+  .bubbles {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 1;
+  }
+
+  .bubble {
+    position: absolute;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 16px 10px 12px;
+    border-radius: 999px;
+    background: var(--bubble);
+    backdrop-filter: blur(14px) saturate(140%);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
+    border: 1px solid var(--bubble-br);
+    color: var(--fg);
+    font-size: 13.5px;
+    font-weight: 500;
+    letter-spacing: 0.1px;
+    text-decoration: none;
+    white-space: nowrap;
+    pointer-events: auto;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    will-change: transform;
+    transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
+  }
+
+  .bubble:hover {
+    background: rgba(255, 255, 255, 0.14);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translate(var(--tx, 0px), var(--ty, 0px)) scale(1.06);
+  }
+
+  .bubble__glyph {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(135deg, #6fc4ff, #2b8ef0);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .bubble[data-kind="github"]   .bubble__glyph { background: linear-gradient(135deg, #4b5563, #1f2937); }
+  .bubble[data-kind="linkedin"] .bubble__glyph { background: linear-gradient(135deg, #4a7bff, #2555cc); }
+  .bubble[data-kind="email"]    .bubble__glyph { background: linear-gradient(135deg, #ff6a88, #e8358f); }
+  .bubble[data-kind="twitter"]  .bubble__glyph { background: linear-gradient(135deg, #2f2f33, #0a0a0a); }
+  .bubble[data-kind="instagram"] .bubble__glyph {
+    background: linear-gradient(135deg, #feda75, #d62976 45%, #4f5bd5);
+  }
+
+  /* ── Center card ────────────────────────────────────── */
+  .card {
+    position: relative;
+    z-index: 2;
+    padding: 40px 44px;
+    border-radius: 22px;
+    background: rgba(20, 24, 40, 0.55);
+    backdrop-filter: blur(28px) saturate(160%);
+    -webkit-backdrop-filter: blur(28px) saturate(160%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow:
+      0 30px 80px rgba(0, 0, 0, 0.45),
+      inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    text-align: center;
+    max-width: min(92vw, 480px);
+  }
+
+  @media (prefers-color-scheme: light) {
+    .card {
+      background: rgba(255, 255, 255, 0.72);
+      border-color: rgba(0, 0, 0, 0.06);
+      box-shadow:
+        0 30px 80px rgba(20, 30, 70, 0.14),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    }
+  }
+
+  /* ── Loading ring ───────────────────────────────────── */
+  .ring {
+    width: 92px;
+    height: 92px;
+    margin: 0 auto 22px;
+    position: relative;
+  }
+  .ring svg { transform: rotate(-90deg); display: block; }
+  .ring__track { stroke: var(--ring-bg); }
+  .ring__arc {
+    stroke: var(--ring-fg);
+    stroke-linecap: round;
+    stroke-dasharray: 60 240;
+    transform-origin: 50% 50%;
+    animation: spin 1.4s linear infinite;
+    filter: drop-shadow(0 0 10px rgba(138, 180, 255, 0.55));
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* ── Copy ───────────────────────────────────────────── */
+  h1 {
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+  }
+  .sub {
+    color: var(--fg-dim);
+    font-size: 14.5px;
+    line-height: 1.5;
+    margin-bottom: 18px;
+  }
+  .progress {
+    color: var(--fg-dim);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-variant-numeric: tabular-nums;
+  }
+  .progress__dots::after {
+    content: '';
+    display: inline-block;
+    width: 1.2em;
+    text-align: left;
+    animation: dots 1.5s steps(4, end) infinite;
+  }
+  @keyframes dots { 0% { content: ''; } 25% { content: '.'; } 50% { content: '..'; } 75% { content: '...'; } }
+
+  .hint {
+    margin-top: 20px;
+    font-size: 12.5px;
+    color: var(--fg-dim);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ring__arc { animation: none; stroke-dasharray: 180 180; }
+    .bubble { transition: none; }
+  }
+
+  @media (max-width: 520px) {
+    .card { padding: 30px 24px; }
+    h1 { font-size: 20px; }
+    .bubble { font-size: 12px; padding: 8px 13px 8px 10px; }
+    .bubble__glyph { width: 22px; height: 22px; font-size: 11px; }
+  }
+</style>
 </head>
 
-
 <body>
-    <nav class="navbar">
-        <!-- Main Title -->
-        <div class="title"><a href="index.html"></a></div>
-        <!-- Navigation Menu-->
-        <ul class="navlinks">
+  <div class="bubbles" id="bubbles" aria-hidden="true"></div>
 
-            <!-- USING CHECKBOX HACK -->
-            <input type="checkbox" id="checkbox_toggle" />
-            <label for="checkbox_toggle" class="hamburger">&#9776;</label>
-            <!-- NAVIGATION MENUS -->
-            <div class="menu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="photography.html">Photography</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li class="other">Other fun things!
-                    <!-- DROPDOWN MENU -->
-                    <ul class="dropdown">
-                        <li><a href="music.html">music & I</a></li>
-                        <li><a href="connect.html">contact me!</a></li>
-                    </ul>
-                </li>
-            </div>
-        </ul>
-    </nav>
-
-    <div class="home">
-        <div class="grid">
-            <!-- Main Tile -->
-            <div class="main">
-                <img class="homeImage" src="./website_images/homepage/IMG_4031.jpg"></img>
-                <div class="welcome">
-                    Desserts spelled backwards ;) <br>
-                    Hi- I'm Sylvie!
-                </div>
-            </div>
-
-            <!-- About Tile -->
-            <div class="leftSideTop">
-                <img class="aboutImage" src="./website_images/homepage/IMG_6009.jpg"></img>
-                <a href="about.html">
-                    <div class="about">about me!</div>
-                </a>
-            </div>
-
-            <!-- Projects Tile  -->
-            <div class="leftSideBottom">
-                <img class="projectsImage" src="./website_images/homepage/deer.jpeg"></img>
-                <a href="projects.html">
-                    <div class="projects">projects!</div>
-                </a>
-            </div>
-
-            <!-- Photography Tile -->
-            <div class="middle">
-                <img class="photographyImage" src="./website_images/homepage/IMG_6116.jpg"></img>
-                <a href="photography.html">
-                    <div class="photography">photography</div>
-                </a>
-
-            </div>
-
-            <!-- Music Tile -->
-            <div class="middleL">
-                <img class="musicImage" src="./website_images/homepage/20170101_211845_1484645909.jpg">
-                <a href="music.html">
-                    <div class="music">music</div>
-                </a>
-            </div>
-
-            <!-- Connect Tile -->
-            <div class="middleR">
-                <img class="connectImage" src="./website_images/photography/west/trees_portrait.jpg">
-                <a href="connect.html">
-                    <div class="connectDiv">connect with me :)</div>
-                </a>
-            </div>
-        </div>
+  <main class="card" role="status" aria-live="polite">
+    <div class="ring" aria-hidden="true">
+      <svg width="92" height="92" viewBox="0 0 92 92">
+        <circle class="ring__track" cx="46" cy="46" r="38"
+                fill="none" stroke-width="6"></circle>
+        <circle class="ring__arc" cx="46" cy="46" r="38"
+                fill="none" stroke-width="6"
+                pathLength="300"></circle>
+      </svg>
     </div>
 
-    <footer class="footer">
-        <p class="text1">Coded in HTML & CSS by Sylvie Dyer</p>
-    </footer>
+    <h1>Software Update</h1>
+    <p class="progress">Installing new content<span class="progress__dots"></span></p>
+    <br>
+    <p class="sub">This site is being updated with new content :)<br> Check back soon! </p>
 
+    <p class="hint">In the meantime, find me (or other fun things) around the web →</p>
+  </main>
+
+<script>
+  // ── Floating social bubbles ─────────────────────────────────────
+  const SOCIALS = [
+    { kind: 'email',     label: 'Email',     glyph: '✉',  href: 'mailto:[sylvierdyer@gmail.com]' },
+    { kind: 'linkedin',  label: 'LinkedIn',  glyph: 'in', href: 'https://linkedin.com/in/SylvieDyer' },
+    { kind: 'github',    label: 'GitHub',    glyph: 'GH', href: 'https://github.com/SylvieDyer' },
+  ];
+
+  const field = document.getElementById('bubbles');
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Build bubbles with random start positions and drift params.
+  const bubbles = SOCIALS.map((s, i) => {
+    const a = document.createElement('a');
+    a.className = 'bubble';
+    a.href = s.href;
+    a.target = '_blank';
+    a.rel = 'noopener noreferrer';
+    a.dataset.kind = s.kind;
+    a.setAttribute('aria-label', s.label);
+    a.innerHTML = `<span class="bubble__glyph" aria-hidden="true">${s.glyph}</span><span>${s.label}</span>`;
+    field.appendChild(a);
+
+    const rect = a.getBoundingClientRect();
+    return {
+      el: a,
+      w: rect.width || 140,
+      h: rect.height || 44,
+      x: 0, y: 0,          // position (set below)
+      vx: 0, vy: 0,         // velocity
+      phase: Math.random() * Math.PI * 2,
+      wobble: 0.6 + Math.random() * 0.9,
+    };
+  });
+
+  function viewport() {
+    return { w: innerWidth, h: innerHeight };
+  }
+
+  // Scatter them around the edges of the viewport, avoiding the card.
+  function seed() {
+    const { w, h } = viewport();
+    const cx = w / 2, cy = h / 2;
+    const safe = Math.min(w, h) * 0.32 + 60; // keep clear of the card
+
+    bubbles.forEach((b, i) => {
+      let x, y, tries = 0;
+      do {
+        x = Math.random() * (w - b.w - 40) + 20;
+        y = Math.random() * (h - b.h - 40) + 20;
+        tries++;
+      } while (tries < 20 && Math.hypot(x + b.w / 2 - cx, y + b.h / 2 - cy) < safe);
+
+      b.x = x;
+      b.y = y;
+      const angle = Math.random() * Math.PI * 2;
+      const speed = 0.18 + Math.random() * 0.22; // px/frame
+      b.vx = Math.cos(angle) * speed;
+      b.vy = Math.sin(angle) * speed;
+      b.el.style.transform = `translate(${b.x}px, ${b.y}px)`;
+    });
+  }
+
+  function step(t) {
+    const { w, h } = viewport();
+    bubbles.forEach((b) => {
+      b.x += b.vx;
+      b.y += b.vy;
+
+      // Gentle vertical wobble so motion feels organic, not drifty-linear.
+      const wob = Math.sin(t * 0.0008 + b.phase) * b.wobble;
+
+      // Bounce off edges.
+      if (b.x <= 0)          { b.x = 0;          b.vx = Math.abs(b.vx); }
+      if (b.x + b.w >= w)    { b.x = w - b.w;    b.vx = -Math.abs(b.vx); }
+      if (b.y <= 0)          { b.y = 0;          b.vy = Math.abs(b.vy); }
+      if (b.y + b.h >= h)    { b.y = h - b.h;    b.vy = -Math.abs(b.vy); }
+
+      b.el.style.transform = `translate(${b.x}px, ${b.y + wob}px)`;
+    });
+    raf = requestAnimationFrame(step);
+  }
+
+  let raf;
+  seed();
+  if (!reduce) {
+    raf = requestAnimationFrame(step);
+  }
+
+  // Re-seed on resize so bubbles don't wander off a shrunken viewport.
+  let resizeTimer;
+  addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      cancelAnimationFrame(raf);
+      seed();
+      if (!reduce) raf = requestAnimationFrame(step);
+    }, 150);
+  });
+
+  // Pause animation when the tab is hidden to save CPU.
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      cancelAnimationFrame(raf);
+    } else if (!reduce) {
+      raf = requestAnimationFrame(step);
+    }
+  });
+</script>
 </body>
-
 </html>

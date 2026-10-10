@@ -1,0 +1,497 @@
+/* ── Full-screen app layer ────────────────────────────────────── */
+.app-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 650;
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  color: var(--text);
+  opacity: 0;
+  transform: scale(1.02);
+  pointer-events: none;
+  transition: opacity var(--t-base) var(--ease-out),
+              transform var(--t-base) var(--ease-out);
+}
+body.app-open .app-layer {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+
+.app-layer__chrome {
+  flex: 0 0 auto;
+  height: 46px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 12px;
+  padding: 0 14px;
+  background: var(--window-bar);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+.win-controls--fullscreen { justify-self: start; }
+
+.app-layer__title {
+  grid-column: 2;
+  font-size: 13.5px;
+  font-weight: 600;
+}
+
+.app-layer__back {
+  grid-column: 3;
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 11px 5px 8px;
+  border-radius: 999px;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--text-dim);
+  border: 1px solid var(--border);
+  transition: background var(--t-fast), color var(--t-fast);
+}
+.app-layer__back:hover { background: var(--accent-soft); color: var(--accent); }
+
+.app-layer__body {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  padding: 44px 32px 80px;
+  scroll-behavior: smooth;
+}
+.app-layer__body > * { animation: app-rise 420ms var(--ease-out) both; }
+
+@keyframes app-rise {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* ══════════════ Shared content components ══════════════
+   Used identically inside windows and full-screen app pages, so a view
+   module never needs to know which container it landed in.
+   ─────────────────────────────────────────────────────── */
+
+.page { max-width: 760px; margin: 0 auto; }
+.page--wide { max-width: 1080px; }
+
+.page__eyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+.page__title {
+  font-size: clamp(26px, 3.4vw, 40px);
+  font-weight: 700;
+  letter-spacing: -0.022em;
+  line-height: 1.12;
+  margin-bottom: 10px;
+}
+.page__lede {
+  font-size: 16.5px;
+  line-height: 1.6;
+  color: var(--text-dim);
+  margin-bottom: 30px;
+  max-width: 62ch;
+}
+
+.section { margin-top: 38px; }
+.section__title {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  padding-bottom: 8px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.prose p { margin-bottom: 14px; max-width: 68ch; line-height: 1.68; }
+.prose h3 { font-size: 16px; font-weight: 650; margin: 24px 0 8px; }
+.prose ul { margin: 0 0 14px 0; display: grid; gap: 7px; }
+.prose li { position: relative; padding-left: 18px; line-height: 1.6; }
+.prose li::before {
+  content: "";
+  position: absolute;
+  left: 3px; top: 0.62em;
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+  opacity: 0.7;
+}
+.prose strong { font-weight: 650; }
+.prose code {
+  font-family: var(--font-mono);
+  font-size: 0.88em;
+  padding: 1.5px 5px;
+  border-radius: 4px;
+  background: var(--surface-sunken);
+}
+
+/* ── Hero (About) ── */
+.hero {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  margin-bottom: 26px;
+}
+.hero__avatar {
+  flex: 0 0 auto;
+  width: 96px; height: 96px;
+  border-radius: 22px;
+  display: grid; place-items: center;
+  font-size: 26px; font-weight: 600;
+  color: #fff;
+  background: var(--wall);
+  box-shadow: var(--shadow-panel);
+}
+.hero__name { font-size: 27px; font-weight: 700; letter-spacing: -0.02em; }
+.hero__role { font-size: 15px; color: var(--text-dim); margin-top: 2px; }
+.hero__meta {
+  display: flex; flex-wrap: wrap; gap: 6px 14px;
+  margin-top: 9px;
+  font-size: 13px; color: var(--text-faint);
+}
+
+/* ── Chips / tags ── */
+.chips { display: flex; flex-wrap: wrap; gap: 7px; }
+.chip {
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 550;
+  color: var(--text-dim);
+  background: var(--surface-sunken);
+  border: 1px solid var(--border);
+}
+.chip--accent { color: var(--accent); background: var(--accent-soft); border-color: transparent; }
+
+/* ── Cards & grids ── */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(268px, 1fr));
+  gap: 16px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 18px;
+  border-radius: var(--radius-panel);
+  background: var(--surface-raised);
+  border: 1px solid var(--border);
+  transition: transform var(--t-fast) var(--ease-out),
+              box-shadow var(--t-fast), border-color var(--t-fast);
+}
+.card:hover {
+  transform: translateY(-3px);
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-panel);
+}
+.card__thumb {
+  height: 120px;
+  margin: -18px -18px 2px;
+  border-radius: var(--radius-panel) var(--radius-panel) 0 0;
+  background: var(--wall);
+  opacity: 0.9;
+  display: grid; place-items: center;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 12px; font-weight: 600; letter-spacing: 0.05em;
+}
+.card__title {
+  display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  font-size: 15.5px; font-weight: 650;
+}
+.card__title svg { flex: 0 0 auto; color: var(--text-faint); }
+.card__desc { font-size: 13.5px; line-height: 1.6; color: var(--text-dim); flex: 1 1 auto; }
+.card__footer { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.card__link { font-size: 13px; font-weight: 600; }
+
+/* ── Timeline (Experience) ── */
+.timeline { display: grid; gap: 4px; }
+.timeline__item {
+  position: relative;
+  padding: 0 0 22px 26px;
+  border-left: 2px solid var(--border);
+}
+.timeline__item:last-child { border-left-color: transparent; padding-bottom: 0; }
+.timeline__item::before {
+  content: "";
+  position: absolute;
+  left: -6px; top: 5px;
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 3px var(--surface);
+}
+.timeline__when { font-size: 12px; font-weight: 600; color: var(--text-faint); letter-spacing: 0.02em; }
+.timeline__what { font-size: 15.5px; font-weight: 650; margin-top: 2px; }
+.timeline__where { font-size: 13.5px; color: var(--text-dim); margin-bottom: 7px; }
+
+/* ── Definition rows (Resume / Settings) ── */
+.rows { display: grid; gap: 1px; border-radius: var(--radius-panel); overflow: hidden; border: 1px solid var(--border); }
+.row {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 12px 16px;
+  background: var(--surface-raised);
+  font-size: 13.5px;
+}
+.row__label { font-weight: 550; }
+.row__value { color: var(--text-dim); text-align: right; }
+
+/* ── Buttons ── */
+.btn {
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 13.5px; font-weight: 600;
+  border: 1px solid var(--border);
+  background: var(--surface-raised);
+  transition: background var(--t-fast), transform var(--t-fast), border-color var(--t-fast);
+}
+.btn:hover  { border-color: var(--border-strong); }
+.btn:active { transform: scale(0.98); }
+.btn--primary {
+  color: #fff;
+  background: var(--accent);
+  border-color: transparent;
+  box-shadow: 0 2px 10px rgba(10, 108, 255, 0.32);
+}
+.btn--primary:hover { filter: brightness(1.07); }
+.btn-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+
+/* ── Contact form ── */
+.form { display: grid; gap: 14px; max-width: 520px; }
+.field { display: grid; gap: 5px; }
+.field__label { font-size: 12.5px; font-weight: 600; color: var(--text-dim); }
+.field__input,
+.field__textarea {
+  padding: 9px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  background: var(--surface-raised);
+  border: 1px solid var(--border-strong);
+  transition: border-color var(--t-fast), box-shadow var(--t-fast);
+}
+.field__input:focus,
+.field__textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+.field__textarea { min-height: 130px; resize: vertical; }
+.form__note { font-size: 12.5px; color: var(--text-faint); }
+
+/* ── Link list (Contact / socials) ── */
+.link-list { display: grid; gap: 8px; }
+.link-list__item {
+  display: flex; align-items: center; gap: 12px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: var(--surface-raised);
+  border: 1px solid var(--border);
+  transition: border-color var(--t-fast), transform var(--t-fast);
+}
+.link-list__item:hover { border-color: var(--accent); transform: translateX(3px); text-decoration: none; }
+.link-list__icon {
+  width: 32px; height: 32px;
+  border-radius: 8px;
+  display: grid; place-items: center;
+  font-size: 14px;
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+.link-list__text { flex: 1 1 auto; min-width: 0; }
+.link-list__title { font-size: 14px; font-weight: 600; color: var(--text); }
+.link-list__sub { font-size: 12.5px; color: var(--text-faint); }
+
+/* ── Photo / gallery grid ── */
+.gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }
+.gallery__tile {
+  aspect-ratio: 1;
+  padding: 0;
+  border-radius: 10px;
+  background: var(--surface-sunken);
+  border: 1px solid var(--border);
+  display: grid; place-items: center;
+  font-size: 12px; color: var(--text-faint);
+  overflow: hidden;
+  cursor: zoom-in;
+  transition: transform var(--t-fast) var(--ease-out), border-color var(--t-fast);
+}
+.gallery__tile:hover { transform: scale(1.03); border-color: var(--border-strong); }
+.gallery__tile img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* ── Two-dimension filter bar (Photos) ─────────────────────────
+   Projects filters on one axis, so a bare chip row is enough there.
+   Albums filter on two, so each row is labelled — otherwise it isn't
+   obvious that a Location and a Category chip combine rather than
+   replace each other.
+   ─────────────────────────────────────────────────────────────── */
+.filter-bar {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 24px;
+  padding: 14px 16px;
+  border-radius: var(--radius-panel);
+  background: var(--surface-sunken);
+  border: 1px solid var(--border);
+}
+.filter-group { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.filter-group__label {
+  flex: 0 0 68px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+/* ── Album card ────────────────────────────────────────────────
+   Clickable anywhere with the mouse; the footer button is the real
+   control, so keyboard and screen-reader users get one clear target
+   instead of a card-sized blob of a label.
+   ─────────────────────────────────────────────────────────────── */
+.card--album { cursor: pointer; }
+.card--album .card__title { gap: 8px; }
+.card--album .card__link { color: var(--accent); }
+.card--album:focus-within {
+  border-color: var(--accent);
+  box-shadow: var(--shadow-panel);
+}
+
+/* ── Single album ── */
+.album__back { margin-bottom: 22px; }
+.album__head { margin-bottom: 4px; }
+
+/* ── Lightbox ──────────────────────────────────────────────────
+   Lives on <body>, not inside the view, so it clears the window and
+   the app layer. Torn down on close — see views/photos.js.
+   ─────────────────────────────────────────────────────────────── */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  /* Above the app layer (650) and the dock (700), below Spotlight (800)
+     and the lock screen (900) — both of those should still win. */
+  z-index: 750;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 12px;
+  padding: clamp(16px, 4vw, 56px);
+  background: rgba(8, 9, 12, 0.86);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  opacity: 0;
+  transition: opacity 180ms var(--ease-out);
+}
+.lightbox.is-open { opacity: 1; }
+
+.lightbox__frame {
+  grid-column: 2;
+  display: grid;
+  gap: 14px;
+  justify-items: center;
+  min-width: 0;
+}
+.lightbox__media {
+  max-width: 100%;
+  display: grid;
+  place-items: center;
+}
+.lightbox__media img {
+  max-width: 100%;
+  max-height: 74vh;
+  border-radius: 8px;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.55);
+}
+.lightbox__placeholder {
+  display: grid; place-items: center;
+  width: min(70vw, 620px);
+  aspect-ratio: 3 / 2;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px dashed rgba(255, 255, 255, 0.28);
+}
+.lightbox__caption {
+  font-size: 13.5px;
+  color: rgba(255, 255, 255, 0.86);
+  text-align: center;
+}
+.lightbox__count { margin-left: 8px; color: rgba(255, 255, 255, 0.5); font-variant-numeric: tabular-nums; }
+
+.lightbox__nav,
+.lightbox__close {
+  display: grid; place-items: center;
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  font-size: 22px;
+  line-height: 1;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  transition: background var(--t-fast), transform var(--t-fast);
+}
+.lightbox__nav:hover,
+.lightbox__close:hover { background: rgba(255, 255, 255, 0.24); }
+.lightbox__nav:active { transform: scale(0.92); }
+.lightbox__nav--prev { grid-column: 1; }
+.lightbox__nav--next { grid-column: 3; }
+.lightbox__close {
+  position: absolute;
+  top: clamp(14px, 3vw, 28px);
+  right: clamp(14px, 3vw, 28px);
+  font-size: 15px;
+}
+
+/* ── Terminal app ── */
+.terminal {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.65;
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 10px;
+  color: #d6ffd6;
+  background: #14161a;
+  border: 1px solid #2c2f36;
+  min-height: 60vh;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+.terminal__prompt { color: #32d74b; }
+.terminal__path   { color: #64d2ff; }
+.terminal__dim    { color: #8a8f98; }
+.terminal__cursor {
+  display: inline-block;
+  width: 7px; height: 15px;
+  vertical-align: -2px;
+  background: #32d74b;
+  animation: blink 1.05s step-end infinite;
+}
+@keyframes blink { 50% { opacity: 0; } }
+
+/* ── Empty / placeholder state ── */
+.empty {
+  display: grid; place-items: center; gap: 8px;
+  padding: 56px 20px;
+  text-align: center;
+  color: var(--text-faint);
+}
+.empty__icon { width: 46px; height: 46px; opacity: 0.5; }
+
+/* Marks every spot that still needs your real content */
+.todo {
+  border-bottom: 1.5px dashed var(--yellow);
+  background: rgba(255, 189, 46, 0.10);
+  padding: 0 2px;
+  border-radius: 2px;
+}

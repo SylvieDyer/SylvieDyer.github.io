@@ -1,0 +1,76 @@
+/* ── Minimal reset ────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+* { margin: 0; padding: 0; }
+
+html, body {
+  height: 100%;
+  overflow: hidden;              /* the "OS" owns the viewport */
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: var(--font-ui);
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text);
+  background: #0b0e14;
+  overscroll-behavior: none;
+}
+
+img, svg, video { display: block; max-width: 100%; }
+
+/* The UA's [hidden] rule loses to any class that sets `display`, which
+   makes `node.hidden = true` silently do nothing on a flex card. */
+[hidden] { display: none !important; }
+
+button, input, textarea, select {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+}
+
+button { cursor: pointer; }
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+ul, ol { list-style: none; }
+
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+:focus:not(:focus-visible) { outline: none; }
+
+.visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  margin: -1px; padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Respect users who don't want motion: keep state changes, drop the theatre */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.noscript {
+  position: fixed; inset: 0;
+  display: grid; place-content: center;
+  gap: 12px; padding: 32px;
+  text-align: center;
+  color: #f2f2f7;
+  background: #14161d;
+}

@@ -1,0 +1,209 @@
+/* ── Window layer ─────────────────────────────────────────────── */
+.window-layer {
+  position: absolute;
+  inset: var(--menubar-h) 0 0 0;
+  z-index: 200;
+  pointer-events: none;       /* only windows themselves catch events */
+}
+
+.window {
+  position: absolute;
+  pointer-events: auto;
+  display: flex;
+  flex-direction: column;
+  min-width: 320px;
+  min-height: 200px;
+  border-radius: var(--radius-window);
+  background: var(--window-bg);
+  border: 1px solid var(--border-strong);
+  box-shadow: var(--shadow-window);
+  backdrop-filter: blur(34px) saturate(1.7);
+  -webkit-backdrop-filter: blur(34px) saturate(1.7);
+  overflow: hidden;
+  color: var(--text);
+}
+/* One-shot: the class is removed on animationend, so nothing can replay it.
+   (Keeping the animation on .window itself made every class toggle —
+   dragging, resizing, focusing — restart the open animation.) */
+.window.is-opening { animation: window-open 300ms var(--ease-spring); }
+/* Unfocused windows recede: dimmer chrome, flatter shadow */
+.window:not(.is-focused) {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.20);
+}
+.window:not(.is-focused) .window__titlebar { opacity: 0.62; }
+
+.window.is-dragging,
+.window.is-resizing {
+  transition: none;
+  will-change: left, top, width, height;
+}
+.window.is-dragging { cursor: grabbing; }
+
+/* While a window is flying to or from the dock, drop the two most
+   expensive paint properties. The background swaps to an opaque colour
+   of the same value so losing the blur isn't visible mid-flight. */
+.window.is-animating {
+  background: var(--window-bg-solid);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  box-shadow: none;
+  will-change: transform, opacity;
+}
+
+/* Maximized ("zoomed") fills the desktop above the dock */
+.window.is-maximized {
+  inset: 0 0 calc(var(--dock-h) + 8px) 0 !important;
+  width: auto !important;
+  height: auto !important;
+  border-radius: 0;
+  transition: inset var(--t-base) var(--ease-out);
+}
+
+.window.is-closing {
+  animation: window-close 200ms var(--ease-out) forwards;
+  pointer-events: none;
+}
+.window.is-minimized { display: none; }
+
+@keyframes window-open {
+  from { opacity: 0; transform: scale(0.90) translateY(10px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes window-close {
+  to { opacity: 0; transform: scale(0.92); }
+}
+/* Minimize/restore are driven from windows.js, because the collapse point
+   depends on where the item's dock icon actually is. */
+
+/* ── Title bar ── */
+.window__titlebar {
+  flex: 0 0 auto;
+  height: 38px;
+  display: grid;
+  grid-template-columns: 78px 1fr 78px;
+  align-items: center;
+  padding: 0 10px;
+  background: var(--window-bar);
+  border-bottom: 1px solid var(--border);
+  cursor: grab;
+  user-select: none;
+  transition: opacity var(--t-fast);
+}
+.window__titlebar:active { cursor: grabbing; }
+
+.window__title {
+  grid-column: 2;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  pointer-events: none;
+}
+.window__title-sub {
+  font-weight: 400;
+  color: var(--text-dim);
+  margin-left: 6px;
+}
+
+/* ── Window controls ───────────────────────────────────────────
+   Monochrome glyph buttons in a recessed tray, not coloured dots.
+   Same three actions and the same corner, but its own visual language:
+   the icon is always legible, and only close tints on hover.
+   ─────────────────────────────────────────────────────────────── */
+.win-controls {
+  display: flex;
+  align-items: center;
+  gap: 1px;
+  padding: 2px;
+  border-radius: 8px;
+  background: rgba(128, 128, 128, 0.13);
+}
+
+.win-btn {
+  display: grid;
+  place-items: center;
+  width: 21px;
+  height: 21px;
+  border-radius: 6px;
+  color: var(--text-dim);
+  transition: background var(--t-fast), color var(--t-fast), transform var(--t-fast);
+}
+.win-btn svg { width: 13px; height: 13px; }
+.win-btn:hover  { background: rgba(128, 128, 128, 0.24); color: var(--text); }
+.win-btn:active { transform: scale(0.9); }
+.win-btn--close:hover { background: var(--red); color: #fff; }
+
+/* Unfocused windows mute their controls instead of greying out dots */
+.window:not(.is-focused) .win-controls { opacity: 0.45; }
+
+/* ── Window body ── */
+.window__body {
+  flex: 1 1 auto;
+  display: flex;
+  min-height: 0;               /* lets the scroll area actually scroll */
+}
+
+.window__sidebar {
+  flex: 0 0 168px;
+  padding: 10px 8px;
+  overflow-y: auto;
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--border);
+}
+.window__sidebar-label {
+  padding: 8px 8px 4px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: var(--text-faint);
+  text-transform: uppercase;
+}
+.window__sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 6px 8px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  text-align: left;
+  color: var(--text);
+}
+.window__sidebar-item:hover { background: rgba(128, 128, 128, 0.14); }
+.window__sidebar-item[aria-current="true"] { background: var(--accent-soft); color: var(--accent); font-weight: 600; }
+.window__sidebar-item svg { flex: 0 0 auto; width: 17px; height: 17px; }
+
+.window__content {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 22px 26px 30px;
+  scroll-behavior: smooth;
+}
+
+/* Thin, macOS-ish scrollbars inside windows */
+.window__content::-webkit-scrollbar,
+.window__sidebar::-webkit-scrollbar { width: 9px; }
+.window__content::-webkit-scrollbar-thumb,
+.window__sidebar::-webkit-scrollbar-thumb {
+  border: 2px solid transparent;
+  border-radius: 5px;
+  background-clip: padding-box;
+  background-color: rgba(128, 128, 128, 0.42);
+}
+.window__content { scrollbar-width: thin; }
+
+/* ── Resize handles: 4 edges + 4 corners ── */
+.resize-handle { position: absolute; z-index: 2; }
+.rh-n  { top: -3px;    left: 10px;  right: 10px;  height: 7px;  cursor: ns-resize; }
+.rh-s  { bottom: -3px; left: 10px;  right: 10px;  height: 7px;  cursor: ns-resize; }
+.rh-w  { left: -3px;   top: 10px;   bottom: 10px; width: 7px;   cursor: ew-resize; }
+.rh-e  { right: -3px;  top: 10px;   bottom: 10px; width: 7px;   cursor: ew-resize; }
+.rh-nw { top: -4px;    left: -4px;  width: 14px;  height: 14px; cursor: nwse-resize; }
+.rh-ne { top: -4px;    right: -4px; width: 14px;  height: 14px; cursor: nesw-resize; }
+.rh-sw { bottom: -4px; left: -4px;  width: 14px;  height: 14px; cursor: nesw-resize; }
+.rh-se { bottom: -4px; right: -4px; width: 14px;  height: 14px; cursor: nwse-resize; }
+.window.is-maximized .resize-handle { display: none; }

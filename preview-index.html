@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Sylvie Dyer — Portfolio</title>
+<meta name="description" content="Welcome to my (Sylvie's) personal website">
+
+<link rel="stylesheet" href="styles/styles.css">
+<link rel="stylesheet" href="styles/reset.css">
+<link rel="stylesheet" href="styles/tokens.css">
+<link rel="stylesheet" href="styles/lock.css">
+<link rel="stylesheet" href="styles/desktop.css">
+<link rel="stylesheet" href="styles/windows.css">
+<link rel="stylesheet" href="styles/dock.css">
+<link rel="stylesheet" href="styles/apps.css">
+<link rel="stylesheet" href="styles/spotlight.css">
+<link rel="stylesheet" href="styles/mobile.css">
+</head>
+<body data-stage="locked" data-wallpaper="default">
+
+  <!-- ══════════════════ 1. LOCK SCREEN ══════════════════ -->
+  <div id="lock-screen" class="lock-screen" role="button" tabindex="0"
+       aria-label="Locked. Press any key or click to wake the computer.">
+    <div class="lock-screen__wallpaper"></div>
+    <div class="lock-screen__clock">
+      <time class="lock-screen__day" data-clock="weekday-date">Monday, January 1</time>
+      <time class="lock-screen__time" data-clock="time-short">99:99</time>
+    </div>
+    <div class="lock-screen__user">
+      <div class="avatar" aria-hidden="true">
+        <span class="avatar__initials">SD</span>
+      </div>
+      <p class="lock-screen__name">Sylvie Dyer</p>
+      <p class="lock-screen__hint">
+        <span class="lock-screen__hint-pulse"></span>
+        Click anywhere or press any key
+      </p>
+    </div>
+  </div>
+
+  <!-- ══════════════════ 2. DESKTOP ══════════════════ -->
+  <div id="desktop" class="desktop" aria-hidden="true">
+
+    <div class="desktop__wallpaper"></div>
+
+    <!-- ── Menu bar: a floating inset bar, not a flush system bar ── -->
+    <div class="menubar-strip">
+      <header class="menubar">
+        <nav class="menubar__left" aria-label="Site menu">
+          <button class="menubar__item menubar__monogram" data-menu="home" aria-haspopup="true"
+                  aria-label="Site menu">SD</button>
+          <button class="menubar__item" data-menu="about"   aria-haspopup="true">About</button>
+          <button class="menubar__item" data-menu="work"    aria-haspopup="true">Work</button>
+          <button class="menubar__item" data-menu="writing" aria-haspopup="true">Writing</button>
+          <button class="menubar__item" data-menu="contact" aria-haspopup="true">Contact</button>
+          <button class="menubar__item" data-menu="display" aria-haspopup="true">Display</button>
+        </nav>
+
+        <div class="menubar__right">
+          <button class="menubar__item menubar__icon" data-action="theme" title="Toggle appearance">
+            <svg viewBox="0 0 24 24" width="15" height="15"><use href="#i-moon"/></svg>
+          </button>
+          <button class="menubar__item menubar__icon" data-action="spotlight" title="Search (⌘K)">
+            <svg viewBox="0 0 24 24" width="15" height="15"><use href="#i-search"/></svg>
+          </button>
+          <span class="menubar__divider" aria-hidden="true"></span>
+          <time class="menubar__item menubar__clock" data-clock="menubar">Mon 9:41 AM</time>
+        </div>
+      </header>
+    </div>
+
+    <!-- ── Desktop icon grid (folders & files → open as windows) ── -->
+    <main class="desktop__surface" id="desktop-surface">
+      <ul class="icon-grid" id="icon-grid" role="list" aria-label="Desktop items"></ul>
+    </main>
+
+    <!-- ── Window layer ── -->
+    <div class="window-layer" id="window-layer"></div>
+
+    <!-- ── Dock (apps → full-screen pages) ── -->
+    <footer class="dock-wrap">
+      <ul class="dock" id="dock" role="list" aria-label="Dock"></ul>
+    </footer>
+  </div>
+
+  <!-- ══════════════════ 3. FULL-SCREEN APP LAYER ══════════════════ -->
+  <div id="app-layer" class="app-layer" aria-hidden="true">
+    <div class="app-layer__chrome">
+      <div class="win-controls win-controls--fullscreen">
+        <button class="win-btn win-btn--close" data-action="exit-fullscreen" aria-label="Close">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-x"/></svg>
+        </button>
+        <button class="win-btn" data-action="exit-fullscreen" aria-label="Minimize">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-minus"/></svg>
+        </button>
+        <button class="win-btn" data-action="exit-fullscreen" aria-label="Exit full screen">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-collapse"/></svg>
+        </button>
+      </div>
+      <h1 class="app-layer__title" id="app-layer-title"></h1>
+      <button class="app-layer__back" data-action="exit-fullscreen">
+        <svg viewBox="0 0 24 24" width="14" height="14"><use href="#i-chevron-left"/></svg>
+        Desktop
+      </button>
+    </div>
+    <div class="app-layer__body" id="app-layer-body" tabindex="-1"></div>
+  </div>
+
+  <!-- ══════════════════ 4. MOBILE HOME SCREEN ══════════════════ -->
+  <div id="mobile-home" class="mobile-home" aria-hidden="true">
+    <div class="mobile-home__statusbar">
+      <span class="mobile-home__carrier">Sylvie Dyer</span>
+      <time data-clock="time-short">9:41</time>
+      <span class="mobile-home__status-icons">
+        <svg viewBox="0 0 24 24" width="14" height="14"><use href="#i-wifi"/></svg>
+        <svg viewBox="0 0 28 14" width="22" height="12"><use href="#i-battery"/></svg>
+      </span>
+    </div>
+    <div class="mobile-home__clock">
+      <time data-clock="time-short">9:41</time>
+      <time data-clock="weekday-date">Monday, January 1</time>
+    </div>
+    <ul class="mobile-grid" id="mobile-grid" role="list" aria-label="Apps"></ul>
+    <ul class="mobile-dock" id="mobile-dock" role="list" aria-label="Dock"></ul>
+  </div>
+
+  <!-- ══════════════════ OVERLAYS ══════════════════ -->
+
+  <!-- Spotlight -->
+  <div id="spotlight" class="spotlight" aria-hidden="true">
+    <div class="spotlight__panel" role="dialog" aria-modal="true" aria-label="Spotlight search">
+      <div class="spotlight__input-row">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><use href="#i-search"/></svg>
+        <input type="text" id="spotlight-input" class="spotlight__input"
+               placeholder="Spotlight Search" autocomplete="off" spellcheck="false"
+               aria-label="Search" aria-controls="spotlight-results" aria-expanded="true">
+      </div>
+      <ul class="spotlight__results" id="spotlight-results" role="listbox" aria-label="Results"></ul>
+    </div>
+  </div>
+
+  <!-- Context menu -->
+  <ul id="context-menu" class="context-menu" role="menu" aria-hidden="true"></ul>
+
+  <!-- Menu bar dropdown -->
+  <ul id="menu-dropdown" class="menu-dropdown" role="menu" aria-hidden="true"></ul>
+
+  <!-- Fullscreen transition ghost (the zooming icon) -->
+  <div id="zoom-ghost" class="zoom-ghost" aria-hidden="true"></div>
+
+  <!-- Live region for screen readers -->
+  <p id="a11y-live" class="visually-hidden" role="status" aria-live="polite"></p>
+
+  <!-- ══════════════════ SVG ICON SPRITE ══════════════════ -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <!-- Window controls: glyph buttons, deliberately not coloured dots -->
+      <g id="i-x"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" d="M7 7l10 10M17 7L7 17"/></g>
+      <g id="i-minus"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" d="M6.5 12h11"/></g>
+      <g id="i-expand"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M14 5h5v5M10 19H5v-5M19 5l-6.5 6.5M5 19l6.5-6.5"/></g>
+      <g id="i-collapse"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M6 11h5V6M18 13h-5v5M11 11L5 5M13 13l6 6"/></g>
+
+      <!-- UI glyphs -->
+      <g id="i-wifi"><path fill="currentColor" d="M12 19.2a1.5 1.5 0 100-3 1.5 1.5 0 000 3zm0-4.9c1.3 0 2.5.5 3.4 1.3l1.4-1.5A7 7 0 0012 12.3a7 7 0 00-4.8 1.8l1.4 1.5a5 5 0 013.4-1.3zm0-4.4a9.4 9.4 0 016.5 2.6l1.4-1.5A11.4 11.4 0 0012 7.9c-3 0-5.8 1.1-7.9 3.1l1.4 1.5A9.4 9.4 0 0112 9.9z"/></g>
+      <g id="i-battery"><rect x="1" y="2.5" width="23" height="9" rx="3" fill="none" stroke="currentColor" stroke-width="1.2" opacity=".5"/><rect x="2.6" y="4.1" width="17.5" height="5.8" rx="1.8" fill="currentColor"/><path fill="currentColor" opacity=".5" d="M25.5 5.3c.9.3 1.5 1.1 1.5 2s-.6 1.7-1.5 2z"/></g>
+      <g id="i-search"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M10.5 17a6.5 6.5 0 100-13 6.5 6.5 0 000 13zm4.8-1.7L20 20"/></g>
+      <g id="i-moon"><path fill="currentColor" d="M12.3 3a9 9 0 108.7 11.4A7.2 7.2 0 0112.3 3z"/></g>
+      <g id="i-sun"><circle cx="12" cy="12" r="4.2" fill="currentColor"/><path stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.2 5.2l1.6 1.6M17.2 17.2l1.6 1.6M18.8 5.2l-1.6 1.6M6.8 17.2l-1.6 1.6"/></g>
+      <g id="i-chevron-left"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M15 5l-7 7 7 7"/></g>
+      <g id="i-arrow-up-right"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M9 7h8v8"/></g>
+
+      <!-- Desktop / dock icons: simple, recognizable, brand-neutral -->
+      <g id="i-folder">
+        <path fill="url(#g-folder-back)" d="M4 12a3 3 0 013-3h13.5l3 3.5H57a3 3 0 013 3v34a3 3 0 01-3 3H7a3 3 0 01-3-3z"/>
+        <path fill="url(#g-folder-front)" d="M4 20h56v30a3 3 0 01-3 3H7a3 3 0 01-3-3z"/>
+      </g>
+      <g id="i-file">
+        <path fill="#fdfdfd" stroke="#d3d3d6" d="M11.5 5.5h27L52.5 20v38a2 2 0 01-2 2h-37a2 2 0 01-2-2v-50a2 2 0 012-2z"/>
+        <path fill="#e4e4e8" d="M38 5.5L52.5 20H38z"/>
+        <path stroke="#b9b9c0" stroke-width="2" stroke-linecap="round" d="M18 30h28M18 37h28M18 44h18"/>
+      </g>
+      <g id="i-app-window">
+        <rect x="4" y="8" width="56" height="48" rx="8" fill="url(#g-blue)"/>
+        <rect x="4" y="8" width="56" height="12" rx="8" fill="#000" opacity=".13"/>
+        <circle cx="13" cy="14" r="2.2" fill="#fff" opacity=".85"/><circle cx="20" cy="14" r="2.2" fill="#fff" opacity=".55"/><circle cx="27" cy="14" r="2.2" fill="#fff" opacity=".55"/>
+        <path stroke="#fff" stroke-width="3" stroke-linecap="round" opacity=".9" d="M14 30h18M14 40h30"/>
+      </g>
+      <g id="i-mail">
+        <rect x="4" y="12" width="56" height="40" rx="8" fill="url(#g-sky)"/>
+        <path fill="none" stroke="#fff" stroke-width="3.4" stroke-linejoin="round" d="M10 19l22 17 22-17"/>
+      </g>
+      <g id="i-music">
+        <rect x="4" y="4" width="56" height="56" rx="13" fill="url(#g-pink)"/>
+        <path fill="#fff" d="M42 14v22a7.5 7.5 0 11-5-7.1V22l-13 3v17a7.5 7.5 0 11-5-7.1V21z"/>
+      </g>
+      <g id="i-terminal">
+        <rect x="4" y="8" width="56" height="48" rx="8" fill="#1c1c1e"/>
+        <rect x="4" y="8" width="56" height="11" rx="8" fill="#3a3a3c"/>
+        <path stroke="#32d74b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M14 31l6 5-6 5M27 41h13"/>
+      </g>
+      <g id="i-settings">
+        <rect x="4" y="4" width="56" height="56" rx="13" fill="url(#g-gray)"/>
+        <circle cx="32" cy="32" r="8" fill="none" stroke="#fff" stroke-width="3.4"/>
+        <path stroke="#fff" stroke-width="3.4" stroke-linecap="round" d="M32 14v6M32 44v6M14 32h6M44 32h6M19 19l4.3 4.3M40.7 40.7L45 45M45 19l-4.3 4.3M23.3 40.7L19 45"/>
+      </g>
+      <g id="i-globe">
+        <circle cx="32" cy="32" r="27" fill="url(#g-teal)"/>
+        <g fill="none" stroke="#fff" stroke-width="2.6" opacity=".95">
+          <circle cx="32" cy="32" r="27"/><path d="M5 32h54M32 5c7 8 7 46 0 54M32 5c-7 8-7 46 0 54"/>
+        </g>
+      </g>
+      <g id="i-photos">
+        <rect x="4" y="4" width="56" height="56" rx="13" fill="#fff"/>
+        <rect x="4" y="4" width="56" height="56" rx="13" fill="url(#g-warm)" opacity=".22"/>
+        <circle cx="32" cy="22" r="6" fill="#ff9f0a"/>
+        <path fill="#30d158" d="M4 60l16-22 12 16 8-9 20 15z" opacity=".9"/>
+        <rect x="4" y="4" width="56" height="56" rx="13" fill="none" stroke="#d9d9de" stroke-width="1.5"/>
+      </g>
+      <g id="i-notes">
+        <rect x="6" y="4" width="52" height="56" rx="7" fill="#fffdf2"/>
+        <rect x="6" y="4" width="52" height="11" rx="7" fill="#ffd60a"/>
+        <path stroke="#dcdcd0" stroke-width="2.2" stroke-linecap="round" d="M15 26h34M15 35h34M15 44h22"/>
+        <rect x="6" y="4" width="52" height="56" rx="7" fill="none" stroke="#e2e2d6" stroke-width="1.4"/>
+      </g>
+      <g id="i-trash">
+        <path fill="#c9ccd2" opacity=".55" d="M17 20h30l-3 36a4 4 0 01-4 4H24a4 4 0 01-4-4z"/>
+        <rect x="14" y="14" width="36" height="6" rx="3" fill="#9ea3ab"/>
+        <rect x="26" y="8" width="12" height="6" rx="3" fill="#9ea3ab"/>
+      </g>
+
+      <!-- gradients -->
+      <linearGradient id="g-folder-back" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8fd0f5"/><stop offset="1" stop-color="#5aa9e6"/></linearGradient>
+      <linearGradient id="g-folder-front" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#a5dcfa"/><stop offset="1" stop-color="#69b8ee"/></linearGradient>
+      <linearGradient id="g-blue" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5e9dff"/><stop offset="1" stop-color="#2f6bdb"/></linearGradient>
+      <linearGradient id="g-sky"  x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6fc4ff"/><stop offset="1" stop-color="#2b8ef0"/></linearGradient>
+      <linearGradient id="g-pink" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fb5c74"/><stop offset="1" stop-color="#e8358f"/></linearGradient>
+      <linearGradient id="g-gray" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9aa0aa"/><stop offset="1" stop-color="#6b7280"/></linearGradient>
+      <linearGradient id="g-teal" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4bd0c4"/><stop offset="1" stop-color="#2094c9"/></linearGradient>
+      <linearGradient id="g-warm" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff9f0a"/><stop offset="1" stop-color="#ff375f"/></linearGradient>
+    </defs>
+  </svg>
+
+  <!-- ══════════════════ SCRIPTS ══════════════════ -->
+  <script type="module" src="scripts/main.js"></script>
+  <noscript>
+    <div class="noscript">
+      <h1>Sylvie Dyer</h1>
+      <p>This site is an interactive desktop and needs JavaScript. Meanwhile, you can find me at:
+         <a href="mailto:[sylvierdyer@gmail.com]">email</a> ·
+         <a href="www.linkedin.com/in/sylviedyer">LinkedIn</a> ·
+         <a href="https://github.com/SylvieDyer">GitHub</a>
+      </p>
+    </div>
+  </noscript>
+
+  <!-- Dynamic Date and Time  -->
+  <script>
+  function updateClock() {
+    const now = new Date();
+
+    document.querySelector('[data-clock="weekday-date"]').textContent =
+      now.toLocaleDateString("en-US", {
+        weekday: "long",
+        month: "long",
+        day: "numeric"
+      });
+
+    document.querySelector('[data-clock="time-short"]').textContent =
+      now.toLocaleTimeString("en-US", {
+        hour: "numeric",
+        minute: "2-digit",
+        hour12: true
+      });
+  }
+
+  updateClock();
+  setInterval(updateClock, 1000);
+  </script>
+</body>
+</html>
