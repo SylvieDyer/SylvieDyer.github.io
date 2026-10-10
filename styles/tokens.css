@@ -1,0 +1,97 @@
+/* ── Design tokens ─────────────────────────────────────────────
+   Light is the default; [data-theme="dark"] on <html> flips it.
+   s */
+:root {
+  /* --font-ui: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter",
+             "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "SF Mono", ui-monospace, "JetBrains Mono", Menlo, Consolas, monospace; */
+
+  /* Surfaces */
+  --text:            #1c1c1e;
+  --text-dim:        #6b6b70;
+  --text-faint:      #9a9aa0;
+  --surface:         #f7f7f9;
+  --surface-raised:  #ffffff;
+  --surface-sunken:  #eeeef1;
+  --window-bg:       rgba(250, 250, 252, 0.82);
+  --window-bg-solid: #f8f8fa;              /* opaque stand-in used mid-animation */
+  --window-bar:      rgba(242, 242, 246, 0.78);
+  --sidebar-bg:      rgba(236, 236, 241, 0.6);
+  --border:          rgba(0, 0, 0, 0.10);
+  --border-strong:   rgba(0, 0, 0, 0.18);
+  --glass:           rgba(255, 255, 255, 0.62);
+  --glass-strong:    rgba(255, 255, 255, 0.78);
+
+  /* Accents */
+  --accent:          #0a6cff;
+  --accent-soft:     rgba(10, 108, 255, 0.12);
+  --focus:           #0a6cff;
+  --selection:       rgba(10, 108, 255, 0.22);
+  --green:           #30d158;
+  --yellow:          #ffbd2e;
+  --red:             #ff5f57;
+
+  /* Elevation */
+  --shadow-window: 0 22px 70px rgba(0, 0, 0, 0.28), 0 2px 8px rgba(0, 0, 0, 0.16);
+  --shadow-panel:  0 12px 40px rgba(0, 0, 0, 0.18);
+  --shadow-dock:   0 10px 34px rgba(0, 0, 0, 0.22);
+  --shadow-icon:   0 2px 6px rgba(0, 0, 0, 0.30);
+
+  /* Geometry */
+  --menubar-h: 44px;              /* strip height; the bar inside is 32px */
+  --dock-h: 68px;
+  --radius-window: 11px;
+  --radius-panel: 12px;
+  --radius-sm: 6px;
+
+  /* Motion — one place to retune the whole feel */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-spring: cubic-bezier(0.34, 1.4, 0.64, 1);
+  --t-fast: 140ms;
+  --t-base: 260ms;
+  --t-slow: 520ms;
+
+  /* Wallpapers, swapped via [data-wallpaper] on <body> */
+  --wall: linear-gradient(150deg,#3a3f4a,#20242c 55%,#0f1116);
+  --wall-blur: linear-gradient(150deg,#4d525e,#2c3138 55%,#1a1d23);
+}
+
+[data-theme="dark"] {
+  --text:            #f2f2f7;
+  --text-dim:        #a1a1a8;
+  --text-faint:      #6e6e76;
+  --surface:         #1c1c1f;
+  --surface-raised:  #2c2c30;
+  --surface-sunken:  #141416;
+  --window-bg:       rgba(38, 38, 42, 0.80);
+  --window-bg-solid: #2a2a2e;
+  --window-bar:      rgba(52, 52, 57, 0.76);
+  --sidebar-bg:      rgba(30, 30, 34, 0.62);
+  --border:          rgba(255, 255, 255, 0.12);
+  --border-strong:   rgba(255, 255, 255, 0.22);
+  --glass:           rgba(28, 28, 32, 0.68);
+  --glass-strong:    rgba(30, 30, 34, 0.84);
+
+  --accent:          #4d9bff;
+  --accent-soft:     rgba(77, 155, 255, 0.18);
+  --focus:           #4d9bff;
+  --selection:       rgba(77, 155, 255, 0.26);
+
+  --shadow-window: 0 24px 74px rgba(0, 0, 0, 0.62), 0 2px 8px rgba(0, 0, 0, 0.4);
+  --shadow-panel:  0 14px 44px rgba(0, 0, 0, 0.5);
+}
+
+/* ── Some wallpaper pre-sets.... ── */
+[data-wallpaper="default"]   { --wall: linear-gradient(150deg,#3a3f4a,#20242c 55%,#0f1116);
+                            --wall-blur: linear-gradient(150deg,#4d525e,#2c3138 55%,#1a1d23); }
+[data-wallpaper="dawn"]   { --wall: linear-gradient(160deg,#ff9a56,#ff6b9d 32%,#7b5bd6 64%,#2b3a8f);
+                            --wall-blur: linear-gradient(160deg,#ffb27d,#ff8fb4 32%,#9a80e0 64%,#4a58a8); }
+[data-wallpaper="dusk"]   { --wall: linear-gradient(165deg,#1b2445,#3d2a6b 38%,#8e3b6e 72%,#c85a52);
+                            --wall-blur: linear-gradient(165deg,#2a3560,#523a8a 38%,#a5548a 72%,#d97d74); }
+[data-wallpaper="mono"]   { --wall: linear-gradient(150deg,#3a3f4a,#20242c 55%,#0f1116);
+                            --wall-blur: linear-gradient(150deg,#4d525e,#2c3138 55%,#1a1d23); }
+[data-wallpaper="mint"]   { --wall: linear-gradient(155deg,#7ef0c8,#39b8b0 35%,#2a6f9e 70%,#243a6b);
+                            --wall-blur: linear-gradient(155deg,#a4f5da,#5fcbc4 35%,#4a8cb5 70%,#41547f); }
+
+::selection { background: var(--selection); }
