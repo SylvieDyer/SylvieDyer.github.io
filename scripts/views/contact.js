@@ -25,7 +25,7 @@ export default function contact() {
         ${header({
           eyebrow: 'Get in touch',
           title: 'Say hello',
-          lede: '[One or two lines on what you would like to talk about!]',
+          lede: 'Let\'s be friends!',
         })}
 
         <form class="form" id="contact-form" novalidate>
@@ -50,8 +50,7 @@ export default function contact() {
             <button class="btn" type="button" data-copy="${esc(PROFILE.email)}">Copy address</button>
           </div>
           <p class="form__note" id="cf-note">
-            No server here — this composes a message in your own mail client.
-            To collect submissions instead, point the form at a service like Formspree or a small serverless endpoint.
+            (Will redirect you to your own mail client with any information stored here, pending integrated mailing system... but who uses email these days anyway xD)
           </p>
         </form>
 

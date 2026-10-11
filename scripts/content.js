@@ -8,9 +8,9 @@
   role:      'Software Engineer',
   tagline:   'Hardworking techie who loves scalable infrastructure and loves her hobbies more :)',
   location:  'Seattle, USA',
-  timezone:  'UTC-7',
+  // timezone:  'UTC-7',
   email:     'sylvierdyer@gmail.com',
-  status:    'Figuring it out',
+  status:    'Working hard or hardly working',
   avatar:    null,                         // e.g. 'assets/avatar.jpg' → replaces initials
 
   // Bio
